@@ -24,9 +24,9 @@
     <p><button type="submit">Add numbers</button></p>
 </form>
 
-{% if result %}
+{% if result is not None %}
 <h2>Result</h2>
-<p>{{ result }}</p>
+<p>{{ form.cleaned_data.num_one }} + {{ form.cleaned_data.num_two }} = {{ result }}</p>
 {% endif %}
 
 {% endblock %}
