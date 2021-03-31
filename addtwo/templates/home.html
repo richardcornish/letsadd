@@ -15,7 +15,9 @@
 
 <form method="get" action="{% url 'home' %}">
     {% for field in form %}
-        <div>{{ field.errors }}</div>
+        {% if field.errors %}
+            <div>{{ field.errors }}</div>
+        {% endif %}
         <p>{{ field.label_tag }}</p>
         <div>{{ field }}</div>
     {% endfor %}
