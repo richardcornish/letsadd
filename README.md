@@ -1,6 +1,6 @@
-# Add Two
+# Let's Add
 
-This repository contains the source code of a website that adds two numbers.
+This repository contains the source code of a website that adds numbers.
 
-- [Code repository](https://github.com/richardcornish/addtwo)
-- [Deployed app](https://addtwonumberstogether.herokuapp.com/)
+- [Code repository](https://github.com/richardcornish/letsadd)
+- [Deployed app](https://letsadd.herokuapp.com/)

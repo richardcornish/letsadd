@@ -2,11 +2,13 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <title>Add Two Numbers</title>
+        <title>{% block title %}Let's Add{% endblock %}</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
     <body>
-        <h1><a href="{% url 'home' %}">Add Two Numbers</a></h1>
+        {% block header %}
+        <p><a href="{% url 'home' %}">Let's Add</a></p>
+        {% endblock %}
         {% block content %}
         {% endblock %}
     </body>

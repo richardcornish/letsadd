@@ -1,1 +1,1 @@
-web: gunicorn addtwo.wsgi --pythonpath addtwo --log-file -
+web: gunicorn letsadd.wsgi --pythonpath letsadd --log-file -

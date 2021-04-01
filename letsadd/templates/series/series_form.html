@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Add Series of Numbers &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Add Series of Numbers</h1>
+
+<h2>Enter number</h2>
+
+{% if form.non_field_errors %}
+<ul>
+    {% for error in form.non_field_errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="get" action="{% url 'series_form' %}">
+    {% for hidden in form.hidden_fields %}
+        <div>{{ hidden }}</div>
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {% if field.errors %}
+            <div>{{ field.errors }}</div>
+        {% endif %}
+        <p>{{ field.label_tag }}</p>
+        <div>{{ field }}</div>
+    {% endfor %}
+    <p><button type="submit">Add number to total</button></p>
+</form>
+
+<h2>Total</h2>
+
+<p>
+    {% if form.cleaned_data %}
+        {{ previous }} + {{ form.cleaned_data.num }} = {{ total }}
+    {% else %}
+        {{ total }}
+    {% endif %}
+</p>
+
+{% if form.cleaned_data %}
+    <p><a href="{% url 'series_form' %}">Reset form</a></p>
+{% endif %}
+
+{% endblock %}

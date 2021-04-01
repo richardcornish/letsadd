@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 
 
+{% block title %}Add Two Numbers &#8226; {{ block.super }}{% endblock %}
+
+
 {% block content %}
+
+<h1>Add Two Numbers</h1>
 
 <h2>Enter numbers</h2>
 
@@ -13,7 +18,7 @@
 </ul>
 {% endif %}
 
-<form method="get" action="{% url 'home' %}">
+<form method="get" action="{% url 'add_form' %}">
     {% for field in form %}
         {% if field.errors %}
             <div>{{ field.errors }}</div>
@@ -24,9 +29,14 @@
     <p><button type="submit">Add numbers</button></p>
 </form>
 
-{% if result is not None %}
-<h2>Result</h2>
-<p>{{ form.cleaned_data.num_one }} + {{ form.cleaned_data.num_two }} = {{ result }}</p>
+{% if total is not None %}
+
+<h2>Total</h2>
+
+<p>{{ form.cleaned_data.num_one }} + {{ form.cleaned_data.num_two }} = {{ total }}</p>
+
+<p><a href="{% url 'add_form' %}">Reset form</a></p>
+
 {% endif %}
 
 {% endblock %}

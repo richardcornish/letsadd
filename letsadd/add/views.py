@@ -3,15 +3,15 @@ from django.shortcuts import render
 from .forms import AddForm
 
 
-def home(request):
-    result = None
+def add(request):
+    total = None
     if request.GET:
         form = AddForm(request.GET)
         if form.is_valid():
-            result = form.add_numbers()
+            total = form.add_numbers()
     else:
         form = AddForm()
-    return render(request, 'home.html', {
+    return render(request, 'add/add_form.html', {
         'form': form,
-        'result': result,
+        'total': total,
     })
