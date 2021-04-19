@@ -2,14 +2,10 @@ from django import forms
 
 
 class SeriesForm(forms.Form):
-    prev = forms.IntegerField(label='Previous', initial=0, widget=forms.HiddenInput)
-    num = forms.IntegerField(label='Number')
-
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
-        self.fields['num'].initial = None
+    previous = forms.IntegerField(initial=0, widget=forms.HiddenInput)
+    current = forms.IntegerField(initial=0, label='Number')
 
     def add_numbers(self):
-        prev = self.cleaned_data['prev']
-        num = self.cleaned_data['num']
-        return prev + num
+        previous = self.cleaned_data['previous']
+        current = self.cleaned_data['current']
+        return previous + current

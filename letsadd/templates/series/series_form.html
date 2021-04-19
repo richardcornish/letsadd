@@ -8,6 +8,8 @@
 
 <h1>Add Series of Numbers</h1>
 
+<p>A form that adds a number to a running total of previously added numbers.</p>
+
 <h2>Enter number</h2>
 
 {% if form.non_field_errors %}
@@ -36,7 +38,7 @@
 
 <p>
     {% if form.cleaned_data %}
-        {{ previous }} + {{ form.cleaned_data.num }} = {{ total }}
+        {{ form.cleaned_data.previous }} + {{ form.cleaned_data.current }} = {{ total }}
     {% else %}
         {{ total }}
     {% endif %}
