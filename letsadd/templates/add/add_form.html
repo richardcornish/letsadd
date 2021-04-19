@@ -8,6 +8,8 @@
 
 <h1>Add Two Numbers</h1>
 
+<p>A form that adds two numbers together and displays the result.</p>
+
 <h2>Enter numbers</h2>
 
 {% if form.non_field_errors %}
@@ -19,7 +21,10 @@
 {% endif %}
 
 <form method="get" action="{% url 'add_form' %}">
-    {% for field in form %}
+    {% for hidden in form.hidden_fields %}
+        <div>{{ hidden }}</div>
+    {% endfor %}
+    {% for field in form.visible_fields %}
         {% if field.errors %}
             <div>{{ field.errors }}</div>
         {% endif %}
@@ -29,14 +34,18 @@
     <p><button type="submit">Add numbers</button></p>
 </form>
 
-{% if total is not None %}
-
 <h2>Total</h2>
 
-<p>{{ form.cleaned_data.num_one }} + {{ form.cleaned_data.num_two }} = {{ total }}</p>
+<p>
+    {% if form.cleaned_data %}
+        {{ form.cleaned_data.one }} + {{ form.cleaned_data.two }} = {{ total }}
+    {% else %}
+        {{ total }}
+    {% endif %}
+</p>
 
-<p><a href="{% url 'add_form' %}">Reset form</a></p>
-
+{% if form.cleaned_data %}
+    <p><a href="{% url 'add_form' %}">Reset form</a></p>
 {% endif %}
 
 {% endblock %}

@@ -4,7 +4,7 @@ from .forms import AddForm
 
 
 def add(request):
-    total = None
+    total = 0
     if request.GET:
         form = AddForm(request.GET)
         if form.is_valid():

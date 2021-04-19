@@ -2,10 +2,10 @@ from django import forms
 
 
 class AddForm(forms.Form):
-    num_one = forms.IntegerField(label='Number one')
-    num_two = forms.IntegerField(label='Number two')
+    one = forms.IntegerField(initial=0, label='Number one')
+    two = forms.IntegerField(initial=0, label='Number two')
 
     def add_numbers(self):
-        num_one = self.cleaned_data['num_one']
-        num_two = self.cleaned_data['num_two']
-        return num_one + num_two
+        one = self.cleaned_data['one']
+        two = self.cleaned_data['two']
+        return one + two
