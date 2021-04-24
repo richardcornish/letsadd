@@ -12,16 +12,20 @@
 
 <p>Examples of adding numbers in <a href="https://www.djangoproject.com/">Django</a> with <a href="https://www.python.org/">Python</a>. Code available on <a href="https://github.com/richardcornish/letsadd">GitHub</a>.</p>
 
-<h2><a href="{% url 'add_form' %}">Add Two Numbers</a></h2>
+<h2><a href="{% url 'add:add_form' %}">Add Two Numbers</a></h2>
 
 <p>A form that adds two numbers together and displays the result.</p>
 
-<h2><a href="{% url 'series_form' %}">Add Series of Numbers</a></h2>
+<h2><a href="{% url 'series:series_form' %}">Add Series of Numbers</a></h2>
 
 <p>A form that adds a number to a running total of previously added numbers.</p>
 
-<h2><a href="{% url 'click_create' %}">Ajax Counter</a></h2>
+<h2><a href="{% url 'counter:click_create' %}">Ajax Counter</a></h2>
 
 <p>A form that increments the number of button clicks using Ajax.</p>
+
+<h2><a href="{% url 'initial:post_create' %}">Create object with initial data</a></h2>
+
+<p>A form that creates an object with pre-populated fields of related initial data.</p>
 
 {% endblock %}

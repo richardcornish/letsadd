@@ -20,7 +20,7 @@
 </ul>
 {% endif %}
 
-<form method="get" action="{% url 'add_form' %}">
+<form method="get" action="{% url 'add:add_form' %}">
     {% for hidden in form.hidden_fields %}
         <div>{{ hidden }}</div>
     {% endfor %}
@@ -30,6 +30,9 @@
         {% endif %}
         <p>{{ field.label_tag }}</p>
         <div>{{ field }}</div>
+        {% if field.help_text %}
+            <p>{{ field.help_text }}</p>
+        {% endif %}
     {% endfor %}
     <p><button type="submit">Add numbers</button></p>
 </form>
@@ -45,7 +48,7 @@
 </p>
 
 {% if form.cleaned_data %}
-    <p><a href="{% url 'add_form' %}">Reset form</a></p>
+    <p><a href="{% url 'add:add_form' %}">Reset form</a></p>
 {% endif %}
 
 {% endblock %}

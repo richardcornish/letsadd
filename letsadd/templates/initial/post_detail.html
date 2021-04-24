@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Create object with initial data &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Create object with initial data</h1>
+
+<p>A form that creates an object with pre-populated fields of related initial data.</p>
+
+<h2>Post detail</h2>
+
+<p>Profile: <a href="{{ post.profile.get_absolute_url }}">Profile {{ post.profile.pk }}</a></p>
+
+<p>Profile residence: {{ post.profile.residence }}</p>
+
+<p>Body: {{ post.body }}</p>
+
+<p>Timestamp: {{ post.timestamp|date:'c' }}</p>
+
+<p><a href="{% url 'initial:post_create' %}">Return to post form</a></p>
+
+{% endblock %}
