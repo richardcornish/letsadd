@@ -7,9 +7,16 @@
     </head>
     <body>
         {% block header %}
-        <p><a href="{% url 'home' %}">Let's Add</a></p>
+        <header>
+            <p><a href="{% url 'home' %}">Let&#8217;s Add</a></p>
+        </header>
         {% endblock %}
         {% block content %}
+        {% endblock %}
+        {% block footer %}
+        <footer>
+            <p>&copy; {% now 'Y' %} <a href="{% url 'home' %}">Let&#8217;s Add</a>. <a href="https://github.com/richardcornish/letsadd">Code on GitHub</a>.</p>
+        </footer>
         {% endblock %}
         {% block scripts %}
         {% endblock %}
