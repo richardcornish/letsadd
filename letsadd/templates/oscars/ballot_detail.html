@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Create a ballot for the Oscars &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Create a ballot for the Oscars</h1>
+
+<p>A form that creates a ballot for selection of Academy Award nominees in Oscar pools.</p>
+
+<h2>{{ object.name }}</h2>
+
+<p>Correct: {{ object.scores.correct }}</p>
+<p>Incorrect: {{ object.scores.incorrect }}</p>
+<p>To be decided: {{ object.scores.tbd }}</p>
+
+{% for obj in object.choice_set.all %}
+    <h3>{{ obj.nominee.category.title }}</h3>
+    <p>{{ obj.nominee.name }}</p>
+    <p>Winner: {{ obj.nominee.recipient|yesno:"Yes,No,To be decided" }}</p>
+{% endfor %}
+
+<p><a href="{% url 'oscars:ballot_create' %}">Return to ballots</a></p>
+
+{% endblock %}

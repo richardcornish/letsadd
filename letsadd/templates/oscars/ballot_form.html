@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+
+{% block title %}Create a ballot for the Oscars &#8226; {{ block.super }}{% endblock %}
+
+
+{% block style %}
+<style>
+    .label { font-weight: bold; }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Create a ballot for the Oscars</h1>
+
+<p>A form that creates a ballot for selection of Academy Award nominees in Oscar pools. <a href="https://en.wikipedia.org/wiki/93rd_Academy_Awards">Wikipedia</a>.</p>
+
+{% if form.non_field_errors %}
+<ul>
+    {% for error in form.non_field_errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<h2>Submit ballot</h2>
+
+<form method="post" action="{% url 'oscars:ballot_create' %}">
+
+    {% csrf_token %}
+
+    {% for hidden in form.hidden_fields %}
+        <div>{{ hidden }}</div>
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {% if field.errors %}
+            <div>{{ field.errors }}</div>
+        {% endif %}
+
+        <p class="label">{{ field.label_tag }}</p>
+
+        {% if field.widget_type == 'radioselect' %}
+            {% for radio in field %}
+                <div><label for="{{ radio.id_for_label }}">{{ radio.tag }} {{ radio.choice_label }}</label></div>
+            {% endfor %}
+        {% else %}
+            <div>{{ field }}</div>
+        {% endif %}
+
+        {% if field.help_text %}
+            <p>{{ field.help_text }}</p>
+        {% endif %}
+    {% endfor %}
+
+    <p><button type="submit">Create ballot</button></p>
+
+</form>
+
+<h2>Submitted ballots</h2>
+
+{% if ballot_list %}
+<ul>
+    {% for obj in ballot_list %}
+    <li><a href="{{ obj.get_absolute_url }}">{{ obj.name }}</a> {{ obj.scores.correct }}/{{ obj.scores.total }}</li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>No ballots.</p>
+{% endif %}
+
+{% endblock %}

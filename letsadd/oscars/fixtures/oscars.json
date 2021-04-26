@@ -1,0 +1,1351 @@
+[
+{
+    "model": "oscars.ceremony",
+    "pk": 1,
+    "fields": {
+        "title": "93rd Academy Awards",
+        "year": 2021
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 1,
+    "fields": {
+        "title": "Best Picture"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 2,
+    "fields": {
+        "title": "Best Director"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 3,
+    "fields": {
+        "title": "Best Actor"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 4,
+    "fields": {
+        "title": "Best Actress"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 5,
+    "fields": {
+        "title": "Best Supporting Actor"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 6,
+    "fields": {
+        "title": "Best Supporting Actress"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 7,
+    "fields": {
+        "title": "Best Original Screenplay"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 8,
+    "fields": {
+        "title": "Best Adapted Screenplay"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 9,
+    "fields": {
+        "title": "Best Animated Feature Film"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 10,
+    "fields": {
+        "title": "Best International Feature Film"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 11,
+    "fields": {
+        "title": "Best Documentary Feature"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 12,
+    "fields": {
+        "title": "Best Documentary Short Subject"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 13,
+    "fields": {
+        "title": "Best Live Action Short Film"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 14,
+    "fields": {
+        "title": "Best Animated Short Film"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 15,
+    "fields": {
+        "title": "Best Original Score"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 16,
+    "fields": {
+        "title": "Best Original Song"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 17,
+    "fields": {
+        "title": "Best Sound"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 18,
+    "fields": {
+        "title": "Best Production Design"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 19,
+    "fields": {
+        "title": "Best Cinematography"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 20,
+    "fields": {
+        "title": "Best Makeup and Hairstyling"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 21,
+    "fields": {
+        "title": "Best Costume Design"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 22,
+    "fields": {
+        "title": "Best Film Editing"
+    }
+},
+{
+    "model": "oscars.category",
+    "pk": 23,
+    "fields": {
+        "title": "Best Visual Effects"
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 1,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "The Father",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 2,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "Judas and the Black Messiah",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 3,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 4,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "Minari",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 5,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "Nomadland",
+        "recipient": false
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 6,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "Promising Young Woman",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 7,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "Sound of Metal",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 8,
+    "fields": {
+        "ceremony": 1,
+        "category": 1,
+        "name": "The Trial of the Chicago 7",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 9,
+    "fields": {
+        "ceremony": 1,
+        "category": 2,
+        "name": "Thomas Vinterberg – Another Round",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 10,
+    "fields": {
+        "ceremony": 1,
+        "category": 2,
+        "name": "David Fincher – Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 11,
+    "fields": {
+        "ceremony": 1,
+        "category": 2,
+        "name": "Lee Isaac Chung – Minari",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 12,
+    "fields": {
+        "ceremony": 1,
+        "category": 2,
+        "name": "Chloé Zhao – Nomadland",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 13,
+    "fields": {
+        "ceremony": 1,
+        "category": 2,
+        "name": "Emerald Fennell – Promising Young Woman",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 14,
+    "fields": {
+        "ceremony": 1,
+        "category": 3,
+        "name": "Riz Ahmed – Sound of Metal",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 15,
+    "fields": {
+        "ceremony": 1,
+        "category": 3,
+        "name": "Chadwick Boseman – Ma Rainey's Black Bottom",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 16,
+    "fields": {
+        "ceremony": 1,
+        "category": 3,
+        "name": "Anthony Hopkins – The Father",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 17,
+    "fields": {
+        "ceremony": 1,
+        "category": 3,
+        "name": "Gary Oldman – Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 18,
+    "fields": {
+        "ceremony": 1,
+        "category": 3,
+        "name": "Steven Yeun – Minari",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 19,
+    "fields": {
+        "ceremony": 1,
+        "category": 4,
+        "name": "Viola Davis – Ma Rainey's Black Bottom",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 20,
+    "fields": {
+        "ceremony": 1,
+        "category": 4,
+        "name": "Andra Day – The United States vs. Billie Holiday",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 21,
+    "fields": {
+        "ceremony": 1,
+        "category": 4,
+        "name": "Vanessa Kirby – Pieces of a Woman",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 22,
+    "fields": {
+        "ceremony": 1,
+        "category": 4,
+        "name": "Frances McDormand – Nomadland",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 23,
+    "fields": {
+        "ceremony": 1,
+        "category": 4,
+        "name": "Carey Mulligan – Promising Young Woman",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 24,
+    "fields": {
+        "ceremony": 1,
+        "category": 5,
+        "name": "Sacha Baron Cohen – The Trial of the Chicago 7",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 25,
+    "fields": {
+        "ceremony": 1,
+        "category": 5,
+        "name": "Daniel Kaluuya – Judas and the Black Messiah",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 26,
+    "fields": {
+        "ceremony": 1,
+        "category": 5,
+        "name": "Leslie Odom Jr. – One Night in Miami...",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 27,
+    "fields": {
+        "ceremony": 1,
+        "category": 5,
+        "name": "Paul Raci – Sound of Metal",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 28,
+    "fields": {
+        "ceremony": 1,
+        "category": 5,
+        "name": "Lakeith Stanfield – Judas and the Black Messiah",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 29,
+    "fields": {
+        "ceremony": 1,
+        "category": 6,
+        "name": "Maria Bakalova – Borat Subsequent Moviefilm",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 30,
+    "fields": {
+        "ceremony": 1,
+        "category": 6,
+        "name": "Glenn Close – Hillbilly Elegy",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 31,
+    "fields": {
+        "ceremony": 1,
+        "category": 6,
+        "name": "Olivia Colman – The Father",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 32,
+    "fields": {
+        "ceremony": 1,
+        "category": 6,
+        "name": "Amanda Seyfried – Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 33,
+    "fields": {
+        "ceremony": 1,
+        "category": 6,
+        "name": "Youn Yuh-jung – Minari",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 34,
+    "fields": {
+        "ceremony": 1,
+        "category": 7,
+        "name": "Judas and the Black Messiah",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 35,
+    "fields": {
+        "ceremony": 1,
+        "category": 7,
+        "name": "Minari",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 36,
+    "fields": {
+        "ceremony": 1,
+        "category": 7,
+        "name": "Promising Young Woman",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 37,
+    "fields": {
+        "ceremony": 1,
+        "category": 7,
+        "name": "Sound of Metal",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 38,
+    "fields": {
+        "ceremony": 1,
+        "category": 7,
+        "name": "The Trial of the Chicago 7",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 39,
+    "fields": {
+        "ceremony": 1,
+        "category": 8,
+        "name": "Borat Subsequent Moviefilm",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 40,
+    "fields": {
+        "ceremony": 1,
+        "category": 8,
+        "name": "The Father",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 41,
+    "fields": {
+        "ceremony": 1,
+        "category": 8,
+        "name": "Nomadland",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 42,
+    "fields": {
+        "ceremony": 1,
+        "category": 8,
+        "name": "One Night in Miami...",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 43,
+    "fields": {
+        "ceremony": 1,
+        "category": 8,
+        "name": "The White Tiger",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 44,
+    "fields": {
+        "ceremony": 1,
+        "category": 9,
+        "name": "Onward",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 45,
+    "fields": {
+        "ceremony": 1,
+        "category": 9,
+        "name": "Over the Moon",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 46,
+    "fields": {
+        "ceremony": 1,
+        "category": 9,
+        "name": "A Shaun the Sheep Movie: Farmageddon",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 47,
+    "fields": {
+        "ceremony": 1,
+        "category": 9,
+        "name": "Soul",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 48,
+    "fields": {
+        "ceremony": 1,
+        "category": 9,
+        "name": "Wolfwalkers",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 49,
+    "fields": {
+        "ceremony": 1,
+        "category": 10,
+        "name": "Another Round",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 50,
+    "fields": {
+        "ceremony": 1,
+        "category": 10,
+        "name": "Better Days",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 51,
+    "fields": {
+        "ceremony": 1,
+        "category": 10,
+        "name": "Collective",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 52,
+    "fields": {
+        "ceremony": 1,
+        "category": 10,
+        "name": "The Man Who Sold His Skin",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 53,
+    "fields": {
+        "ceremony": 1,
+        "category": 10,
+        "name": "Quo Vadis, Aida?",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 54,
+    "fields": {
+        "ceremony": 1,
+        "category": 11,
+        "name": "Collective",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 55,
+    "fields": {
+        "ceremony": 1,
+        "category": 11,
+        "name": "Crip Camp",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 56,
+    "fields": {
+        "ceremony": 1,
+        "category": 11,
+        "name": "The Mole Agent",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 57,
+    "fields": {
+        "ceremony": 1,
+        "category": 11,
+        "name": "My Octopus Teacher",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 58,
+    "fields": {
+        "ceremony": 1,
+        "category": 11,
+        "name": "Time",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 59,
+    "fields": {
+        "ceremony": 1,
+        "category": 12,
+        "name": "Colette",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 60,
+    "fields": {
+        "ceremony": 1,
+        "category": 12,
+        "name": "A Concerto Is a Conversation",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 61,
+    "fields": {
+        "ceremony": 1,
+        "category": 12,
+        "name": "Do Not Split",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 62,
+    "fields": {
+        "ceremony": 1,
+        "category": 12,
+        "name": "Hunger Ward",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 63,
+    "fields": {
+        "ceremony": 1,
+        "category": 12,
+        "name": "A Love Song for Latasha",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 64,
+    "fields": {
+        "ceremony": 1,
+        "category": 13,
+        "name": "Feeling Through",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 65,
+    "fields": {
+        "ceremony": 1,
+        "category": 13,
+        "name": "The Letter Room",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 66,
+    "fields": {
+        "ceremony": 1,
+        "category": 13,
+        "name": "The Present",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 67,
+    "fields": {
+        "ceremony": 1,
+        "category": 13,
+        "name": "Two Distant Strangers",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 68,
+    "fields": {
+        "ceremony": 1,
+        "category": 13,
+        "name": "White Eye",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 69,
+    "fields": {
+        "ceremony": 1,
+        "category": 14,
+        "name": "Burrow",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 70,
+    "fields": {
+        "ceremony": 1,
+        "category": 14,
+        "name": "Genius Loci",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 71,
+    "fields": {
+        "ceremony": 1,
+        "category": 14,
+        "name": "If Anything Happens I Love You",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 72,
+    "fields": {
+        "ceremony": 1,
+        "category": 14,
+        "name": "Opera",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 73,
+    "fields": {
+        "ceremony": 1,
+        "category": 14,
+        "name": "Yes-People",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 74,
+    "fields": {
+        "ceremony": 1,
+        "category": 15,
+        "name": "Da 5 Bloods",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 75,
+    "fields": {
+        "ceremony": 1,
+        "category": 15,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 76,
+    "fields": {
+        "ceremony": 1,
+        "category": 15,
+        "name": "Minari",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 77,
+    "fields": {
+        "ceremony": 1,
+        "category": 15,
+        "name": "News of the World",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 78,
+    "fields": {
+        "ceremony": 1,
+        "category": 15,
+        "name": "Soul",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 79,
+    "fields": {
+        "ceremony": 1,
+        "category": 16,
+        "name": "\"Fight for You\" from Judas and the Black Messiah",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 80,
+    "fields": {
+        "ceremony": 1,
+        "category": 16,
+        "name": "\"Hear My Voice\" from The Trial of the Chicago 7",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 81,
+    "fields": {
+        "ceremony": 1,
+        "category": 16,
+        "name": "\"Husavik\" from Eurovision Song Contest: The Story of Fire Saga",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 82,
+    "fields": {
+        "ceremony": 1,
+        "category": 16,
+        "name": "\"Io sì (Seen)\" from The Life Ahead",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 83,
+    "fields": {
+        "ceremony": 1,
+        "category": 16,
+        "name": "\"Speak Now\" from One Night in Miami...",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 84,
+    "fields": {
+        "ceremony": 1,
+        "category": 17,
+        "name": "Greyhound",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 85,
+    "fields": {
+        "ceremony": 1,
+        "category": 17,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 86,
+    "fields": {
+        "ceremony": 1,
+        "category": 17,
+        "name": "News of the World",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 87,
+    "fields": {
+        "ceremony": 1,
+        "category": 17,
+        "name": "Soul",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 88,
+    "fields": {
+        "ceremony": 1,
+        "category": 17,
+        "name": "Sound of Metal",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 89,
+    "fields": {
+        "ceremony": 1,
+        "category": 18,
+        "name": "The Father",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 90,
+    "fields": {
+        "ceremony": 1,
+        "category": 18,
+        "name": "Ma Rainey's Black Bottom",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 91,
+    "fields": {
+        "ceremony": 1,
+        "category": 18,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 92,
+    "fields": {
+        "ceremony": 1,
+        "category": 18,
+        "name": "News of the World",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 93,
+    "fields": {
+        "ceremony": 1,
+        "category": 18,
+        "name": "Tenet",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 94,
+    "fields": {
+        "ceremony": 1,
+        "category": 19,
+        "name": "Judas and the Black Messiah",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 95,
+    "fields": {
+        "ceremony": 1,
+        "category": 19,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 96,
+    "fields": {
+        "ceremony": 1,
+        "category": 19,
+        "name": "News of the World",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 97,
+    "fields": {
+        "ceremony": 1,
+        "category": 19,
+        "name": "Nomadland",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 98,
+    "fields": {
+        "ceremony": 1,
+        "category": 19,
+        "name": "The Trial of the Chicago 7",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 99,
+    "fields": {
+        "ceremony": 1,
+        "category": 20,
+        "name": "Emma.",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 100,
+    "fields": {
+        "ceremony": 1,
+        "category": 20,
+        "name": "Hillbilly Elegy",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 101,
+    "fields": {
+        "ceremony": 1,
+        "category": 20,
+        "name": "Ma Rainey's Black Bottom",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 102,
+    "fields": {
+        "ceremony": 1,
+        "category": 20,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 103,
+    "fields": {
+        "ceremony": 1,
+        "category": 20,
+        "name": "Pinocchio",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 104,
+    "fields": {
+        "ceremony": 1,
+        "category": 21,
+        "name": "Emma.",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 105,
+    "fields": {
+        "ceremony": 1,
+        "category": 21,
+        "name": "Ma Rainey's Black Bottom",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 106,
+    "fields": {
+        "ceremony": 1,
+        "category": 21,
+        "name": "Mank",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 107,
+    "fields": {
+        "ceremony": 1,
+        "category": 21,
+        "name": "Mulan",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 108,
+    "fields": {
+        "ceremony": 1,
+        "category": 21,
+        "name": "Pinocchio",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 109,
+    "fields": {
+        "ceremony": 1,
+        "category": 22,
+        "name": "The Father",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 110,
+    "fields": {
+        "ceremony": 1,
+        "category": 22,
+        "name": "Nomadland",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 111,
+    "fields": {
+        "ceremony": 1,
+        "category": 22,
+        "name": "Promising Young Woman",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 112,
+    "fields": {
+        "ceremony": 1,
+        "category": 22,
+        "name": "Sound of Metal",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 113,
+    "fields": {
+        "ceremony": 1,
+        "category": 22,
+        "name": "The Trial of the Chicago 7",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 114,
+    "fields": {
+        "ceremony": 1,
+        "category": 23,
+        "name": "Love and Monsters",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 115,
+    "fields": {
+        "ceremony": 1,
+        "category": 23,
+        "name": "The Midnight Sky",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 116,
+    "fields": {
+        "ceremony": 1,
+        "category": 23,
+        "name": "Mulan",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 117,
+    "fields": {
+        "ceremony": 1,
+        "category": 23,
+        "name": "The One and Only Ivan",
+        "recipient": null
+    }
+},
+{
+    "model": "oscars.nominee",
+    "pk": 118,
+    "fields": {
+        "ceremony": 1,
+        "category": 23,
+        "name": "Tenet",
+        "recipient": null
+    }
+}
+]
