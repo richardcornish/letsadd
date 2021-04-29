@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static counter_tags %}
+{% load humanize %}
 
 
 {% block title %}Random number generator &#8226; {{ block.super }}{% endblock %}
@@ -37,7 +37,7 @@
 
 <h2>Result</h2>
 
-<p>{{ number }}</p>
+<p>{{ number|intcomma }}</p>
 
 <p><a href="{% url 'rando:random_form' %}">Reset form</a></p>
 
