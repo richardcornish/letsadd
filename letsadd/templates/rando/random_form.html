@@ -10,7 +10,7 @@
 
 <h1>Random number generator</h1>
 
-<p>A form that generates a random number based on an inclusive range.</p>
+<p>A form that generates a <a href="https://docs.python.org/3/library/random.html">pseudo-random number</a> based on an inclusive range.</p>
 
 <h2>Enter range</h2>
 
@@ -33,7 +33,7 @@
     <p><button type="submit">Generate random number</button></p>
 </form>
 
-{% if number %}
+{% if form.cleaned_data %}
 
 <h2>Result</h2>
 
