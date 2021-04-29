@@ -11,5 +11,6 @@ urlpatterns = [
     path('counter/', include('counter.urls')),
     path('initial/', include('initial.urls')),
     path('oscars/', include('oscars.urls')),
+    path('random/', include('rando.urls')),
     path('', home, name='home'),
 ]

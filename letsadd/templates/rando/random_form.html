@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% load static counter_tags %}
+
+
+{% block title %}Random number generator &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Random number generator</h1>
+
+<p>A form that generates a random number based on an inclusive range.</p>
+
+<h2>Enter range</h2>
+
+<div class="errors"></div>
+
+<form method="get" action="{% url 'rando:random_form' %}">
+    {% for hidden in form.hidden_fields %}
+        <div>{{ hidden }}</div>
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {% if field.errors %}
+            <div>{{ field.errors }}</div>
+        {% endif %}
+        <p>{{ field.label_tag }}</p>
+        <div>{{ field }}</div>
+        {% if field.help_text %}
+            <p>{{ field.help_text }}</p>
+        {% endif %}
+    {% endfor %}
+    <p><button type="submit">Generate random number</button></p>
+</form>
+
+{% if number %}
+
+<h2>Result</h2>
+
+<p>{{ number }}</p>
+
+<p><a href="{% url 'rando:random_form' %}">Reset form</a></p>
+
+{% endif %}
+
+{% endblock %}
