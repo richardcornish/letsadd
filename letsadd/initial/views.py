@@ -14,13 +14,15 @@ def post_create(request):
     # because we don't have a fully fledged auth installed, we will simply get 
     # the first Profile instance instead.
     # (A basic profile object is provided in a fixture.)
-    if request.user.is_authenticated:
-        profile = request.user.profile
-    else:
+    # if request.user.is_authenticated:
+    #     profile = request.user.profile
+    # else:
+    #     return redirect(settings.LOGIN_URL)
+    try:
         profile = Profile.objects.get(pk=1)
-        # return redirect(settings.LOGIN_URL)
-
-    if request.method == "POST":
+    except Profile.DoesNotExist:
+        profile = None
+    if request.method == "POST" and profile is not None:
         form_list = [
             ProfileForm(request.POST, instance=profile),
             PostForm(request.POST)
@@ -36,10 +38,13 @@ def post_create(request):
             obj = form_list[-1].instance
             return redirect(reverse_lazy('initial:post_detail', args=[str(obj.pk)]))
     else:
-        form_list = [
-            ProfileForm(instance=profile),
-            PostForm()
-        ]
+        if profile is not None:
+            form_list = [
+                ProfileForm(instance=profile),
+                PostForm()
+            ]
+        else:
+            form_list = []
     return render(request, 'initial/post_create.html', {
         'form_list': form_list,
         'profile_list': Profile.objects.all(),
