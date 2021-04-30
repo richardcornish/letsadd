@@ -14,7 +14,13 @@
 
 <h2>Enter range</h2>
 
-<div class="errors"></div>
+{% if form.non_field_errors %}
+<ul>
+    {% for error in form.non_field_errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
 
 <form method="get" action="{% url 'rando:random_form' %}">
     {% for hidden in form.hidden_fields %}
@@ -33,7 +39,7 @@
     <p><button type="submit">Generate random number</button></p>
 </form>
 
-{% if form.cleaned_data %}
+{% if form.is_valid %}
 
 <h2>Result</h2>
 

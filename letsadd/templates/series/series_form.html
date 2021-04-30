@@ -39,16 +39,11 @@
 
 <h2>Total</h2>
 
-<p>
-    {% if form.cleaned_data %}
-        {{ form.cleaned_data.previous }} + {{ form.cleaned_data.current }} = {{ total }}
-    {% else %}
-        {{ total }}
-    {% endif %}
-</p>
-
-{% if form.cleaned_data %}
+{% if form.is_valid %}
+    <p>{{ form.cleaned_data.previous }} + {{ form.cleaned_data.current }} = {{ total }}</p>
     <p><a href="{% url 'series:series_form' %}">Reset form</a></p>
+{% else %}
+    <p>{{ total }}</p>
 {% endif %}
 
 {% endblock %}
