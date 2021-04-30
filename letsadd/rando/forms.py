@@ -14,13 +14,9 @@ class RandomForm(forms.Form):
 
     def clean(self):
         cleaned_data = super().clean()
-        min_ = cleaned_data.get('min')
-        max_ = cleaned_data.get('max')
-
-        if min_ and min_:
-            if min_ ==  max_:
-                message = 'The minimum field is equal to the maximum field.'
-                raise forms.ValidationError(message, code='invalid')
-            elif min_ >  max_:
-                message = 'The minimum field is greater than the maximum field.'
-                raise forms.ValidationError(message, code='invalid')
+        a = cleaned_data.get('min')
+        b = cleaned_data.get('max')
+        if a and b:
+            if a >= b:
+                message = 'Ensure the minimum value is less than the maximum value.'
+                raise forms.ValidationError(message, code='min_value')

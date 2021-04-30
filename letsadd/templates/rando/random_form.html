@@ -45,8 +45,10 @@
 
 <p>{{ number|intcomma }}</p>
 
-<p><a href="{% url 'rando:random_form' %}">Reset form</a></p>
+{% endif %}
 
+{% if form.is_bound %}
+    <p><a href="{% url 'rando:random_form' %}">Reset form</a></p>
 {% endif %}
 
 {% endblock %}

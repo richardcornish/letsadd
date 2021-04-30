@@ -41,9 +41,12 @@
 
 {% if form.is_valid %}
     <p>{{ form.cleaned_data.one }} + {{ form.cleaned_data.two }} = {{ total }}</p>
-    <p><a href="{% url 'add:add_form' %}">Reset form</a></p>
 {% else %}
     <p>{{ total }}</p>
+{% endif %}
+
+{% if form.is_bound %}
+    <p><a href="{% url 'add:add_form' %}">Reset form</a></p>
 {% endif %}
 
 {% endblock %}
