@@ -13,5 +13,5 @@ class AlphabetizeFormView(FormView):
         initial = {
             'text': form.alphabetize(),
         }
-        form = AlphabetizeForm(initial=initial)
+        form = self.form_class(initial=initial)
         return self.render_to_response(self.get_context_data(form=form))
