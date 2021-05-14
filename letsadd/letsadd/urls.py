@@ -12,5 +12,6 @@ urlpatterns = [
     path('initial/', include('initial.urls')),
     path('oscars/', include('oscars.urls')),
     path('random/', include('rando.urls')),
+    path('alphabetize/', include('alphabetize.urls')),
     path('', home, name='home'),
 ]
