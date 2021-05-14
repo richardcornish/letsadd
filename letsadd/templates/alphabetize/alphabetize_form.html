@@ -55,7 +55,7 @@
     <p><button type="submit">Alphabetize</button></p>
 </form>
 
-{% if form.is_bound %}
+{% if form.has_changed %}
     <p><a href="{% url 'alphabetize:alphabetize_form' %}">Reset form</a></p>
 {% endif %}
 
