@@ -3,7 +3,7 @@ import json
 from django.core import serializers
 from django.http import JsonResponse
 from django.shortcuts import redirect
-from django.urls import reverse_lazy
+from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DeleteView, View
 
 from .models import Click
@@ -40,4 +40,4 @@ class ClickDeleteView(View):
 
     def post(self, *args, **kwargs):
         Click.objects.all().delete()
-        return redirect(reverse_lazy('counter:click_create'))
+        return redirect(reverse('counter:click_create'))

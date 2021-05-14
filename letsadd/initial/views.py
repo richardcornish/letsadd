@@ -1,6 +1,6 @@
 from django.conf import settings
 from django.shortcuts import redirect, render
-from django.urls import reverse_lazy
+from django.urls import reverse
 from django.views.generic import DetailView
 
 from .forms import PostForm, ProfileForm
@@ -36,7 +36,7 @@ def post_create(request):
                 form_list_is_valid = False
         if form_list_is_valid:
             obj = form_list[-1].instance
-            return redirect(reverse_lazy('initial:post_detail', args=[str(obj.pk)]))
+            return redirect(reverse('initial:post_detail', args=[str(obj.pk)]))
     else:
         if profile is not None:
             form_list = [
