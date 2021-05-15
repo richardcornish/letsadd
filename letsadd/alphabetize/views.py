@@ -10,8 +10,7 @@ class AlphabetizeFormView(FormView):
     success_url = reverse_lazy('alphabetize:alphabetize_form')
 
     def form_valid(self, form):
-        initial = {
-            'text': form.alphabetize(),
-        }
+        initial = form.cleaned_data
+        initial['text'] = form.alphabetize()
         form = self.form_class(initial=initial)
         return self.render_to_response(self.get_context_data(form=form))
