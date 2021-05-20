@@ -15,7 +15,7 @@
 <form method="post" action="{% if object %}{% url 'choices:bot_update' object.pk %}{% else %}{% url 'choices:bot_create' %}{% endif %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <button type="submit">{% if object %}Edit{% else %}Add{% endif %} bot</button>
+    <button type="submit">Save bot</button>
 </form>
 
 <p>
