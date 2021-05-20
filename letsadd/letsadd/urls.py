@@ -13,5 +13,7 @@ urlpatterns = [
     path('oscars/', include('oscars.urls')),
     path('random/', include('rando.urls')),
     path('alphabetize/', include('alphabetize.urls')),
+    path('warhammer/', include('warhammer.urls')),
+    path('choices/', include('choices.urls')),
     path('', home, name='home'),
 ]

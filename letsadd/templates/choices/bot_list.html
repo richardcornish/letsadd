@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Display model choices &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Display model choices</h1>
+
+<p>An object whose field with choices are displayed.</p>
+
+<p><a href="{% url 'choices:bot_create' %}">Add new bot</a></p>
+
+<h2>Bots</h2>
+
+<ul>
+    {% for obj in object_list %}
+    <li>Bot {{ obj.pk }}: <a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

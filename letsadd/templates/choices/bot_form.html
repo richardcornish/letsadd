@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Display model choices &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Display model choices</h1>
+
+<p>An object whose field with choices are displayed.</p>
+
+<h2>{% if object %}Edit{% else %}Add{% endif %} bot</h2>
+
+<form method="post" action="{% if object %}{% url 'choices:bot_update' object.pk %}{% else %}{% url 'choices:bot_create' %}{% endif %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if object %}Edit{% else %}Add{% endif %} bot</button>
+</form>
+
+<p>
+    {% if object %}
+    <a href="{{ object.get_absolute_url }}">Return to bot</a>
+    {% else %}
+    <a href="{% url 'choices:bot_list' %}">Return to bots</a>
+    {% endif %}
+</p>
+
+{% endblock %}

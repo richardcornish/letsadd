@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Display model choices &#8226; {{ block.super }}{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+{% endblock %}
+
+
+{% block content %}
+
+<h1>Display model choices</h1>
+
+<p>An object whose field with choices are displayed.</p>
+
+<h2>{{ object }}</h2>
+
+<h3>Name</h3>
+
+<p>{{ object.name }}</p>
+
+<h3>Is approved</h3>
+
+<p>{{ object.is_approved }}</p>
+
+<h3>Site supported</h3>
+
+<p>{{ object.site_supported }}</p>
+
+List of elements with <a href="https://getbootstrap.com/docs/5.0/components/badge/#pill-badges">pill badges</a>:
+
+<p>
+    {% for site in object.site_supported_list %}
+    <span class="badge rounded-pill bg-primary">{{ site }}</span>
+    {% endfor %}
+</p>
+
+<p><a href="{% url 'choices:bot_update' object.pk %}">Edit</a></p>
+
+<p><a href="{% url 'choices:bot_list' %}">Return to bots</a></p>
+
+{% endblock %}

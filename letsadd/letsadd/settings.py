@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'counter',
     'initial',
     'oscars',
+    'choices',
 ]
 
 MIDDLEWARE = [
