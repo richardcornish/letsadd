@@ -4,15 +4,6 @@ from django.utils.text import slugify
 
 
 class Bot(models.Model):
-    SITE_SUPPORTED_CHOICES = [
-        ('Adidas', 'Adidas'),
-        ('Shopify', 'Shopify'),
-        ('Supreme', 'Supreme'),
-        ('Footsites', 'Footsites'),
-        ('YeezySupply', 'YeezySupply'),
-        ('Mesh', 'Mesh'),
-        ('AIO', 'AIO'),
-    ]
     name = models.CharField(max_length=20)
     site_supported = models.CharField(max_length=100)
     slug = models.SlugField(max_length=50, unique=True, blank=True)
