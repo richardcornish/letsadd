@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+
+{% block title %}Warhammer 40,000 names &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Warhammer 40,000 names</h1>
+
+<p>A series of forms that chooses a random chapter name and human name.</p>
+
+<form method="get" action="{% url 'warhammer:chapter_form' %}?p1=ok&p2=good&p3=bad">
+
+    <h2>Chapter name</h2>
+
+    {% if chapter %}
+        <p>{{ chapter }}</p>
+    {% endif %}
+
+    <p><button name="chapter" value="{{ next_chapter }}" type="submit">Generate random chapter name</button></p>
+
+    <h2>Human name</h2>
+
+    {% if human %}
+        <p>{{ human }}</p>
+    {% endif %}
+
+    <p><button name="human" value="{{ next_human }}" type="submit">Generate random human name</button></p>
+
+</form>
+
+{% if form.is_bound %}
+    <p><a href="{% url 'warhammer:chapter_form' %}">Reset form</a></p>
+{% endif %}
+
+{% endblock %}
