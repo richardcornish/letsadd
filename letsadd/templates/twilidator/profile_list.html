@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Customize Twitter URL validator &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Customize Twitter URL validators</h1>
+
+<p>A form that customizes the validation of a Twitter-esque URL.</p>
+
+<p><a href="{% url 'twilidator:profile_create' %}">+ Add profile</a></p>
+
+<h2>Profiles</h2>
+
+<ul>
+    {% for obj in object_list %}
+    <li>Profile {{ obj.pk }}: <a href="{{ obj.get_absolute_url }}">{{ obj }}</a></li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
