@@ -1,4 +1,4 @@
-let ajax = function (input_selector, url, results_selector, error_selector) {
+let ajax = (input_selector, url, results_selector, error_selector) => {
 
     let input = document.querySelector(input_selector);
     let results = document.querySelector(results_selector);
