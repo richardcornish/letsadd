@@ -7,7 +7,7 @@ from .models import Post
 class SearchForm(forms.Form):
     q = forms.CharField(label='Query', widget=forms.TextInput(attrs={
         'autocomplete': 'off',
-        'placeholder': 'Post Search..',
+        'placeholder': 'Search posts...',
     }))
 
     def get_results(self, query):

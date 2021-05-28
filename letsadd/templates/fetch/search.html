@@ -29,7 +29,7 @@
         <div>{{ hidden }}</div>
     {% endfor %}
     {% for field in form.visible_fields %}
-        <div class="error error-{{ field.id_for_label }}">
+        <div class="errors errors-{{ field.id_for_label }}">
         {% if field.errors %}
             <ul>
                 {% for error in field.errors %}
@@ -68,6 +68,6 @@
 {% block scripts %}
 <script src="{% static 'fetch/js/script.js' %}"></script>
 <script>
-    ajax("input[name='q']", "http{% if request.is_secure %}s{% endif %}://{{ request.get_host }}{% url 'fetch:search' %}", ".results", ".error");
+    ajax("input[name='q']", "http{% if request.is_secure %}s{% endif %}://{{ request.get_host }}{% url 'fetch:search' %}", ".results", ".errors");
 </script>
 {% endblock %}
