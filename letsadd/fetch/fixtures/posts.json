@@ -1,0 +1,29 @@
+[
+{
+    "model": "fetch.post",
+    "pk": 1,
+    "fields": {
+        "title": "Hello",
+        "content": "This is hello content.",
+        "image": ""
+    }
+},
+{
+    "model": "fetch.post",
+    "pk": 2,
+    "fields": {
+        "title": "Nice",
+        "content": "This is nice content.",
+        "image": ""
+    }
+},
+{
+    "model": "fetch.post",
+    "pk": 3,
+    "fields": {
+        "title": "Good",
+        "content": "This is good content.",
+        "image": ""
+    }
+}
+]
