@@ -15,7 +15,7 @@ class ClickCreateView(CreateView):
     success_url = reverse_lazy('counter:click_create')
 
     def request_is_ajax(self):
-        return True if self.request.headers.get('X-Requested-With') == 'XMLHttpRequest' else False
+        return self.request.headers.get('X-Requested-With') == 'XMLHttpRequest'
 
     def form_valid(self, form):
         response = super().form_valid(form)
