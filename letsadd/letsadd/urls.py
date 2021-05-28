@@ -15,5 +15,7 @@ urlpatterns = [
     path('alphabetize/', include('alphabetize.urls')),
     path('warhammer/', include('warhammer.urls')),
     path('choices/', include('choices.urls')),
+    path('twilidator/', include('twilidator.urls')),
+    path('fetch/', include('fetch.urls')),
     path('', home, name='home'),
 ]

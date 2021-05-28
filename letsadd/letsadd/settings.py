@@ -49,6 +49,8 @@ INSTALLED_APPS = [
     'initial',
     'oscars',
     'choices',
+    'twilidator',
+    'fetch',
 ]
 
 MIDDLEWARE = [

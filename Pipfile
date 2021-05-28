@@ -10,6 +10,7 @@ gunicorn = "*"
 psycopg2-binary = "*"
 whitenoise = "*"
 django-widget-tweaks = "*"
+pillow = "*"
 
 [dev-packages]
 

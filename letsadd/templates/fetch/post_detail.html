@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Live search with Fetch &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Live search with Fetch</h1>
+
+<p>A form that live searches data with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API">Fetch API</a>.</p>
+
+<h2>{{ object }}</h2>
+
+<h3>Title</h3>
+
+<p>{{ object.title }}</p>
+
+<h3>Content</h3>
+
+<p>{{ object.content }}</p>
+
+{% if object.image %}
+
+<h3>Image</h3>
+
+<p>{{ object.image }}</p>
+
+{% endif %}
+
+<p><a href="{% url 'fetch:search' %}">Return to search</a></p>
+
+{% endblock %}
