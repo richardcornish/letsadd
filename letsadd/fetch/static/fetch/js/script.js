@@ -37,6 +37,7 @@ let ajax = (input_selector, url, results_selector, error_selector) => {
         let params = new window.URLSearchParams();
         params.append(input.name, input.value);
         window.history.replaceState({}, "", `${location.pathname}?${params}`);
+        window.history.pushState({}, '', `${location.pathname}?${params}`);
         get_results(`${url}?${params}`).then((data) => {
             render_results(data, errors);
         });
