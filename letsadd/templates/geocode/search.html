@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+{% block title %}Geocode search &#8226; {{ block.super }}{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<style>
+    img {
+        max-width: 100%;
+    }
+</style>
+{% endblock %}
+
+
+{% block content %}
+
+<h1><a href="{% url 'geocode:search' %}">Geocode search</a></h1>
+
+<p>A form that searches for nearby restaurants based on postal code with the Google <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Places API</a>. <a href="https://www.reddit.com/r/djangolearning/comments/nn1veh/question_about_using_google_api_geocoding/">Request</a>.</p>
+
+<h2>Search places</h2>
+
+{% if form.non_field_errors %}
+<ul>
+    {% for error in form.non_field_errors %}
+    <li>{{ error }}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+
+<form method="get" action="{% url 'geocode:search' %}">
+    {% for hidden in form.hidden_fields %}
+        <div>{{ hidden }}</div>
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {% if field.errors %}
+            <ul>
+                {% for error in field.errors %}
+                <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <p>{{ field.label_tag }}</p>
+        <p>{{ field }}</p>
+        {% if field.help_text %}
+            <p><small>{{ field.help_text }}</small></p>
+        {% endif %}
+    {% endfor %}
+    <button type="submit">Search places</button>
+</form>
+
+<div class="results">
+{% if query %}
+    <h2>Search results</h2>
+    {% if result_list %}
+        <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ result_list.coords.latitude }},{{ result_list.coords.longitude }}"><code>{{ result_list.coords.latitude }}</code>, <code>{{ result_list.coords.longitude }}</code></a>.</p>
+        {% for result in result_list.data %}
+            <h3><a href="https://www.google.com/maps/place/?q=place_id:{{ result.place_id }}">{{ result.name }}</a></h3>
+            <p>{{ result.vicinity }}</p>
+            <a href="https://www.google.com/maps/place/?q=place_id:{{ result.place_id }}"><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth={{ max_width }}&amp;photoreference={{ result.photos.0.photo_reference }}&amp;key={{ google_api_key }}" alt="Photo of {{ result.name }}"></a>
+        {% endfor %}
+    {% else %}
+        <p>No results.</p>
+    {% endif %}
+    <p><a href="{% url 'geocode:search' %}">Reset form</a></p>
+{% endif %}
+</div>
+
+{% endblock %}

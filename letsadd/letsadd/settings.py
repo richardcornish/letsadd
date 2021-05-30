@@ -145,6 +145,13 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
+# Google Cloud Platform
+# https://developers.google.com/maps/documentation/geocoding/overview
+# https://developers.google.com/maps/documentation/places/web-service/overview
+
+GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY', '')
+
+
 # Heroku
 # https://help.heroku.com/J2R1S4T8/can-heroku-force-an-application-to-use-ssl-tls
 

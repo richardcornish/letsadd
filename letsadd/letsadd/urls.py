@@ -17,5 +17,6 @@ urlpatterns = [
     path('choices/', include('choices.urls')),
     path('twilidator/', include('twilidator.urls')),
     path('fetch/', include('fetch.urls')),
+    path('geocode/', include('geocode.urls')),
     path('', home, name='home'),
 ]
