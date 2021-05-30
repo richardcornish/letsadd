@@ -31,19 +31,20 @@ class SearchForm(forms.Form):
             body = json.loads(response.read().decode('utf-8'))
             if body['status'] == 'OK':
                 try:
-                    latitude = body['results'][0]['geometry']['location']['lat']
-                    longitude = body['results'][0]['geometry']['location']['lng']
-                    return (latitude, longitude)
+                    return {
+                        'latitude': body['results'][0]['geometry']['location']['lat'],
+                        'longitude': body['results'][0]['geometry']['location']['lng'],
+                    }
                 except KeyError:
                     return None
                 except IndexError:
                     return None
             return None
 
-    def search_nearby(self, latitude, longitude, radius):
+    def search_nearby(self, coordinates, radius):
         output = 'json'
         parameters = urllib.parse.urlencode({
-            'location': '%s,%s' % (latitude, longitude),
+            'location': '%s,%s' % (coordinates['latitude'], coordinates['longitude']),
             'radius': '%s' % self.as_meters(radius),
             'type': 'restaurant',
             'key': settings.GOOGLE_API_KEY,
@@ -56,15 +57,12 @@ class SearchForm(forms.Form):
             return None
 
     def get_results(self, query):
-        latitude, longitude = self.geocode_query(query)
-        if (latitude, longitude) is not None:
-            data = self.search_nearby(latitude, longitude, self.cleaned_data['radius'])
+        coordinates = self.geocode_query(query)
+        if coordinates is not None:
+            data = self.search_nearby(coordinates, self.cleaned_data['radius'])
             if data is not None:
                 return {
                     'data': data,
-                    'coords': {
-                        'latitude': latitude,
-                        'longitude': longitude,
-                    },
+                    'coordinates': coordinates,
                 }
         return None

@@ -57,7 +57,7 @@
 {% if query %}
     <h2>Search results</h2>
     {% if result_list %}
-        <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ result_list.coords.latitude }},{{ result_list.coords.longitude }}"><code>{{ result_list.coords.latitude }}</code>, <code>{{ result_list.coords.longitude }}</code></a>.</p>
+        <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ result_list.coordinates.latitude }},{{ result_list.coordinates.longitude }}"><code>{{ result_list.coordinates.latitude }}</code>, <code>{{ result_list.coordinates.longitude }}</code></a>.</p>
         {% for result in result_list.data %}
             <h3><a href="https://www.google.com/maps/place/?q=place_id:{{ result.place_id }}">{{ result.name }}</a></h3>
             <p>{{ result.vicinity }}</p>
