@@ -1,12 +1,13 @@
 import json
-import urllib
+import urllib.parse
+import urllib.request
 
 from django import forms
 from django.conf import settings
 
 DEFAULT_ADDRESS = '90210'
-MINIMUM_RADIUS = 1  # miles
 DEFAULT_RADIUS = 10  # miles
+MINIMUM_RADIUS = 1  # miles
 METERS_IN_MILE = 1609.344  # meters
 
 
@@ -17,7 +18,7 @@ class SearchForm(forms.Form):
     }))
     radius = forms.IntegerField(initial=DEFAULT_RADIUS, min_value=MINIMUM_RADIUS, help_text='Miles')
 
-    def as_meters(self, miles):
+    def to_meters(self, miles):
         return int(miles * METERS_IN_MILE)
 
     def geocode_query(self, address):
@@ -45,7 +46,7 @@ class SearchForm(forms.Form):
         output = 'json'
         parameters = urllib.parse.urlencode({
             'location': '%s,%s' % (coordinates['latitude'], coordinates['longitude']),
-            'radius': '%s' % self.as_meters(radius),
+            'radius': '%s' % self.to_meters(radius),
             'type': 'restaurant',
             'key': settings.GOOGLE_API_KEY,
         })
