@@ -4,7 +4,7 @@ from django.core import serializers
 from django.http import JsonResponse
 from django.shortcuts import redirect
 from django.urls import reverse, reverse_lazy
-from django.views.generic import CreateView, DeleteView, View
+from django.views.generic import CreateView, View
 
 from .models import Click
 
