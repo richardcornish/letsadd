@@ -18,7 +18,7 @@ class SearchForm(forms.Form):
         'type': 'search',
         'placeholder': 'Search places',
     }))
-    type = forms.ChoiceField(initial='restaurant', choices=TYPE_CHOICES)
+    type = forms.ChoiceField(initial='restaurant', choices=TYPE_CHOICES, required=False)
     radius = forms.IntegerField(initial=DEFAULT_RADIUS, min_value=MINIMUM_RADIUS, help_text='Miles')
 
     def to_meters(self, miles):
