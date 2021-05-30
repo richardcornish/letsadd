@@ -40,10 +40,10 @@ class SearchForm(forms.Form):
                         'longitude': body['results'][0]['geometry']['location']['lng'],
                     }
                 except KeyError:
-                    return None
+                    return {}
                 except IndexError:
-                    return None
-            return None
+                    return {}
+            return {}
 
     def search_nearby(self, coordinates, tipe, radius):
         output = 'json'
@@ -57,16 +57,18 @@ class SearchForm(forms.Form):
         with urllib.request.urlopen(url) as response:
             body = json.loads(response.read().decode('utf-8'))
             if body['status'] == 'OK':
-                return body['results']
-            return None
+                try:
+                    return body['results']
+                except IndexError:
+                    return []
+            return []
 
     def get_results(self, query):
+        results = {}
         coordinates = self.geocode_query(query)
-        if coordinates is not None:
+        if coordinates:
+            results['coordinates'] = coordinates
             data = self.search_nearby(coordinates, self.cleaned_data['type'], self.cleaned_data['radius'])
-            if data is not None:
-                return {
-                    'data': data,
-                    'coordinates': coordinates,
-                }
-        return None
+            if data:
+                results['data'] = data
+        return results
