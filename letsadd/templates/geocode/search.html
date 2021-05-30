@@ -57,11 +57,13 @@
 {% if query %}
     <h2>Search results</h2>
     {% if result_list %}
-        <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ result_list.coordinates.latitude }},{{ result_list.coordinates.longitude }}"><code>{{ result_list.coordinates.latitude }}</code>, <code>{{ result_list.coordinates.longitude }}</code></a>.</p>
+        <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ result_list.coordinates.latitude }}%2C%20{{ result_list.coordinates.longitude }}"><code>{{ result_list.coordinates.latitude }}</code>, <code>{{ result_list.coordinates.longitude }}</code></a>.</p>
         {% for result in result_list.data %}
-            <h3><a href="https://www.google.com/maps/place/?q=place_id:{{ result.place_id }}">{{ result.name }}</a></h3>
+            <h3><a href="https://www.google.com/maps/search/?api=1&amp;query={{ result.name|urlencode }}%2C%20{{ result.vicinity|urlencode }}&amp;query_place_id={{ result.place_id }}">{{ result.name }}</a></h3>
             <p>{{ result.vicinity }}</p>
-            <a href="https://www.google.com/maps/place/?q=place_id:{{ result.place_id }}"><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth={{ max_width }}&amp;photoreference={{ result.photos.0.photo_reference }}&amp;key={{ google_api_key }}" alt="Photo of {{ result.name }}"></a>
+            {% if result.photos.0 %}
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query={{ result.name|urlencode }}%2C%20{{ result.vicinity|urlencode }}&amp;query_place_id={{ result.place_id }}"><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth={{ max_width }}&amp;photoreference={{ result.photos.0.photo_reference }}&amp;key={{ google_api_key }}" alt="Photo of {{ result.name }}"></a></p>
+            {% endif %}
         {% endfor %}
     {% else %}
         <p>No results.</p>
