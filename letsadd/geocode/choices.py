@@ -73,6 +73,7 @@ TYPE_CHOICES = [
     ('pharmacy', 'Pharmacy'),
     ('physiotherapist', 'Physiotherapist'),
     ('plumber', 'Plumber'),
+    ('point_of_interest', 'Point of interest'),
     ('police', 'Police'),
     ('post_office', 'Post office'),
     ('primary_school', 'Primary school'),

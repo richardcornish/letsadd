@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 
-{% load static %}
+{% load static geocode_tags %}
 
 
 {% block title %}Geocode search &#8226; {{ block.super }}{% endblock %}
@@ -25,11 +25,11 @@
 <h2>Search places</h2>
 
 {% if form.non_field_errors %}
-<ul>
+    <ul>
     {% for error in form.non_field_errors %}
-    <li>{{ error }}</li>
+        <li>{{ error }}</li>
     {% endfor %}
-</ul>
+    </ul>
 {% endif %}
 
 <form method="get" action="{% url 'geocode:search' %}">
@@ -39,9 +39,9 @@
     {% for field in form.visible_fields %}
         {% if field.errors %}
             <ul>
-                {% for error in field.errors %}
+            {% for error in field.errors %}
                 <li>{{ error }}</li>
-                {% endfor %}
+            {% endfor %}
             </ul>
         {% endif %}
         <p>{{ field.label_tag }}</p>
@@ -54,22 +54,22 @@
 </form>
 
 {% if query %}
-<h2>Search results</h2>
-{% if result_list.coordinates %}
-    <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ result_list.coordinates.latitude }}%2C%20{{ result_list.coordinates.longitude }}"><code>{{ result_list.coordinates.latitude }}</code>, <code>{{ result_list.coordinates.longitude }}</code></a>.</p>
-{% endif %}
-{% if result_list.data %}
-    {% for result in result_list.data %}
-        <h3><a href="https://www.google.com/maps/search/?api=1&amp;query={{ result.name|urlencode }}%2C%20{{ result.vicinity|urlencode }}&amp;query_place_id={{ result.place_id }}">{{ result.name }}</a></h3>
-        <p>{{ result.vicinity }}</p>
-        {% if result.photos.0 %}
-        <p><a href="https://www.google.com/maps/search/?api=1&amp;query={{ result.name|urlencode }}%2C%20{{ result.vicinity|urlencode }}&amp;query_place_id={{ result.place_id }}"><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth={{ max_width }}&amp;photoreference={{ result.photos.0.photo_reference }}&amp;key={{ google_api_key }}" alt="Photo of {{ result.name }}"></a></p>
-        {% endif %}
-    {% endfor %}
-{% else %}
-    <p>No results.</p>
-{% endif %}
-<p><a href="{% url 'geocode:search' %}">Reset form</a></p>
+    <h2>Search results</h2>
+    {% if point %}
+        <p><code>{{ query }}</code> is at <a href="https://www.google.com/maps/?q={{ point.latitude }}%2C%20{{ point.longitude }}"><code>{{ point.latitude }}</code>, <code>{{ point.longitude }}</code></a>.</p>
+    {% endif %}
+    {% if place_list %}
+        {% for place in place_list %}
+            <h3><a href="https://www.google.com/maps/search/?api=1&amp;query={{ place.name|urlencode }}%2C%20{{ place.vicinity|urlencode }}&amp;query_place_id={{ place.place_id }}">{{ place.name }}</a> {% if place.business_status %}<small>({{ place.business_status|lower|capfirst|unslugify }})</small>{% endif %}</h3>
+            <p>{{ place.vicinity }}</p>
+            {% if place.photos.0 %}
+            <p><a href="https://www.google.com/maps/search/?api=1&amp;query={{ place.name|urlencode }}%2C%20{{ place.vicinity|urlencode }}&amp;query_place_id={{ place.place_id }}"><img src="https://maps.googleapis.com/maps/api/place/photo?maxwidth={{ max_width }}&amp;photoreference={{ place.photos.0.photo_reference }}&amp;key={{ google_api_key }}" alt="Photo of {{ place.name }}"></a></p>
+            {% endif %}
+        {% endfor %}
+    {% else %}
+        <p>No results.</p>
+    {% endif %}
+    <p><a href="{% url 'geocode:search' %}">Reset form</a></p>
 {% endif %}
 
 {% endblock %}

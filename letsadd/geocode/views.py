@@ -26,11 +26,15 @@ class SearchView(FormView):
         return kwargs
 
     def form_valid(self, form):
-        address = form.cleaned_data['address']
         kwargs = {
-            'query': address,
-            'result_list': form.get_results(address),
+            'query': form.cleaned_data['address'],
             'max_width': PHOTO_MAX_WIDTH,
             'google_api_key': settings.GOOGLE_API_KEY,
         }
+        point = form.get_point(kwargs['query'])
+        if point:
+            kwargs['point'] = point
+            place_list = form.get_places(point)
+            if place_list:
+                kwargs['place_list'] = place_list
         return self.render_to_response(self.get_context_data(**kwargs))

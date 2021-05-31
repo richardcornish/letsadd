@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'choices',
     'twilidator',
     'fetch',
+    'geocode',
 ]
 
 MIDDLEWARE = [
