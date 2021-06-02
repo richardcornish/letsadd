@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% load humanize %}
+
+
+{% block title %}Haversine search &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1><a href="{% url 'haversine:park_list' %}">Haversine search</a></h1>
+
+<p>A form that searches for nearby national parks based on location using <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a>.</p>
+
+<h2>{{ object }}</h2>
+
+<h3>Location</h3>
+
+<p>{{ object.location }}</p>
+
+<p>{{ object.latitude }}, {{ object.longitude }}</p>
+
+<h3>Date established</h3>
+
+<p>{{ object.established }}</p>
+
+<h3>Area</h3>
+
+<p>{{ object.area|intcomma }}</p>
+
+<h3>Visitors</h3>
+
+<p>{{ object.visitors|intcomma }}</p>
+
+<h3>Description</h3>
+
+<p>{{ object.description }}</p>
+
+<p><a href="{{ object.url }}">Wikipedia</a></p>
+
+<p><a href="{{ previous }}">Return to search</a></p>
+
+{% endblock %}

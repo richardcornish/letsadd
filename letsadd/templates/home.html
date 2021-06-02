@@ -60,6 +60,10 @@
 
 <h2><a href="{% url 'geocode:search' %}">Geocode search</a></h2>
 
-<p>A form that searches for nearby restaurants based on postal code with the Google <a href="https://developers.google.com/maps/documentation/places/web-service/overview">Places API</a>.</p>
+<p>A form that searches for nearby restaurants based on postal code with the Google Geocoding and Places APIs.</p>
+
+<h2><a href="{% url 'haversine:park_list' %}">Haversine search</a></h2>
+
+<p>A form that searches for nearby U.S. national parks based on location using the Haversine formula.</p>
 
 {% endblock %}

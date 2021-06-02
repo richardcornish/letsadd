@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     'twilidator',
     'fetch',
     'geocode',
+    'haversine',
 ]
 
 MIDDLEWARE = [
@@ -147,6 +148,7 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
 
 # Google Cloud Platform
+# https://developers.google.com/maps/documentation/javascript
 # https://developers.google.com/maps/documentation/geocoding/overview
 # https://developers.google.com/maps/documentation/places/web-service/overview
 

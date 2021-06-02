@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% load humanize static geocode_tags %}
+
+
+{% block title %}Haversine search &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1><a href="{% url 'haversine:park_list' %}">Haversine search</a></h1>
+
+<p>A form that searches for nearby <a href="https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States">U.S. national parks</a> based on location using the <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a>.</p>
+
+<h2>Search parks</h2>
+
+{% if form.non_field_errors %}
+    <ul>
+    {% for error in form.non_field_errors %}
+        <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+{% endif %}
+
+<form method="get" action="{% url 'haversine:park_list' %}">
+    {% for hidden in form.hidden_fields %}
+        <div>{{ hidden }}</div>
+    {% endfor %}
+    {% for field in form.visible_fields %}
+        {% if field.errors %}
+            <ul>
+            {% for error in field.errors %}
+                <li>{{ error }}</li>
+            {% endfor %}
+            </ul>
+        {% endif %}
+        <p>{{ field.label_tag }}</p>
+        <p>{{ field }}</p>
+        {% if field.help_text %}
+            <p><small>{{ field.help_text }}</small></p>
+        {% endif %}
+    {% endfor %}
+    <button type="submit">Search parks</button>
+</form>
+
+<h2>{% if query %}Search results{% else %}Parks{% endif %}</h2>
+
+<p>{{ object_list|length }} park{{ object_list|pluralize }} {% if query %}within {{ radius|intcomma }} mile{{ radius|pluralize }} of <a href="https://www.google.com/maps/?q={{ point.latitude }}%2C{{ point.longitude }}">{{ point.formatted_address }}</a>{% endif %}</p>
+
+<ul>
+    {% for obj in object_list %}
+        <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
+            {% if obj.distance_m %}{{ obj.distance_m|floatformat:"0g" }} mi{% endif %}
+            {% if obj.distance_km %}{{ obj.distance_km|floatformat:"0g" }} km{% endif %}
+        </li>
+    {% endfor %}
+</ul>
+
+{% if query %}
+    <p><a href="{% url 'haversine:park_list' %}">Reset form</a></p>
+{% endif %}
+
+{% endblock %}
