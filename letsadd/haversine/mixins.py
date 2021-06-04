@@ -23,6 +23,6 @@ class JsonMultipleObjectMixin:
                 qs_object = self.object_list.get(pk=obj['pk'])
                 if hasattr(qs_object, 'distance'):  # check for annotated QuerySet
                     obj['fields']['distance'] = floatformat(qs_object.distance, arg='0g')
-                obj['fields']['get_absolute_url'] = self.object_list.get(pk=obj['pk']).get_absolute_url()
+                obj['fields']['get_absolute_url'] = qs_object.get_absolute_url()
             context['object_list_json'] = json.dumps([obj['fields'] for obj in object_list])
         return context

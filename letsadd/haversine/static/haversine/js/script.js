@@ -30,7 +30,7 @@ let park_detail = function (selector, object) {
     });
 };
 
-let park_list = function (selector, object_array, point, radius, units, icon) {
+let park_list = function (selector, object_array, point, radius, units, path) {
     let mapDiv = document.querySelector(selector);
     let _map = new google.maps.Map(mapDiv, opts);
     let bounds = new google.maps.LatLngBounds();
@@ -66,8 +66,11 @@ let park_list = function (selector, object_array, point, radius, units, icon) {
             map: _map,
             position: _center
         });
-        if (icon !== undefined) {
-            marker.setIcon(icon);
+        if (path !== undefined) {
+            marker.setIcon({
+                scaledSize: new google.maps.Size(27, 43),
+                url: path
+            });
         }
         marker.addListener("click", function () {
             if (info) {
