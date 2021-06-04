@@ -1,16 +1,33 @@
 {% extends 'base.html' %}
 
-{% load humanize %}
+{% load static humanize haversine_tags %}
 
 
 {% block title %}Haversine search &#8226; {{ block.super }}{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<style>
+    .map {
+        width: 100%;
+        max-width: auto;
+        height: 400px;
+    }
+    html, body {
+        height: 100%;
+    }
+</style>
+{% endblock %}
 
 
 {% block content %}
 
 <h1><a href="{% url 'haversine:park_list' %}">Haversine search</a></h1>
 
-<p>A form that searches for nearby national parks based on location using <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a>.</p>
+<p>A form that searches for nearby <a href="https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States">U.S. national parks</a> based on location using the <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a>.</p>
+
+<div class="map"></div>
 
 <h2>{{ object }}</h2>
 
@@ -40,4 +57,13 @@
 
 <p><a href="{{ previous }}">Return to search</a></p>
 
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
+<script src="{% static 'haversine/js/script.js' %}"></script>
+<script>
+    render_map(".map", [{name: "{{ object.name }}", point: {lat: {{ object.latitude }}, lng: {{ object.longitude }}}}]);
+</script>
 {% endblock %}

@@ -1,9 +1,24 @@
 {% extends 'base.html' %}
 
-{% load humanize static geocode_tags %}
+{% load humanize static haversine_tags %}
 
 
 {% block title %}Haversine search &#8226; {{ block.super }}{% endblock %}
+
+
+{% block style %}
+{{ block.super }}
+<style>
+    .map {
+        width: 100%;
+        max-width: auto;
+        height: 400px;
+    }
+    html, body {
+        height: 100%;
+    }
+</style>
+{% endblock %}
 
 
 {% block content %}
@@ -11,6 +26,8 @@
 <h1><a href="{% url 'haversine:park_list' %}">Haversine search</a></h1>
 
 <p>A form that searches for nearby <a href="https://en.wikipedia.org/wiki/List_of_national_parks_of_the_United_States">U.S. national parks</a> based on location using the <a href="https://en.wikipedia.org/wiki/Haversine_formula">Haversine formula</a>.</p>
+
+<div class="map"></div>
 
 <h2>Search parks</h2>
 
@@ -45,13 +62,12 @@
 
 <h2>{% if query %}Search results{% else %}Parks{% endif %}</h2>
 
-<p>{{ object_list|length }} park{{ object_list|pluralize }} {% if query %}within {{ radius|intcomma }} mile{{ radius|pluralize }} of <a href="https://www.google.com/maps/?q={{ point.latitude }}%2C{{ point.longitude }}">{{ point.formatted_address }}</a>{% endif %}</p>
+<p>{{ object_list|length }} park{{ object_list|pluralize }} {% if query %}within {{ radius|intcomma }} {% get_field_display form.units units %} of <a href="https://www.google.com/maps/?q={{ point.formatted_address|urlencode }}">{{ point.formatted_address }}</a>{% endif %}</p>
 
 <ul>
     {% for obj in object_list %}
         <li><a href="{{ obj.get_absolute_url }}">{{ obj }}</a>
-            {% if obj.distance_m %}{{ obj.distance_m|floatformat:"0g" }} mi{% endif %}
-            {% if obj.distance_km %}{{ obj.distance_km|floatformat:"0g" }} km{% endif %}
+            {% if obj.distance %}{{ obj.distance|floatformat:"0g" }} {{ units }}{% endif %}
         </li>
     {% endfor %}
 </ul>
@@ -60,4 +76,13 @@
     <p><a href="{% url 'haversine:park_list' %}">Reset form</a></p>
 {% endif %}
 
+{% endblock %}
+
+
+{% block scripts %}
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
+<script src="{% static 'haversine/js/script.js' %}"></script>
+<script>
+    render_map(".map", [{% for obj in object_list %}{name: "{{ obj.name }}", url: "{{ obj.get_absolute_url }}", point: {lat: {{ obj.latitude }}, lng: {{ obj.longitude }}}{% if point %}, distance: "{{ obj.distance|floatformat:'0g' }} {% get_field_display form.units units %}"{% endif %}}{% if not forloop.last %}, {% endif %}{% endfor %}]{% if point %}, {radius: {{ radius }}, point: {lat: {{ point.latitude }}, lng: {{ point.longitude }}}}, "{% static 'haversine/img/icon-green.png' %}"{% endif %});
+</script>
 {% endblock %}

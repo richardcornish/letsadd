@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import FormMixin
@@ -9,7 +10,6 @@ from .models import Park
 class ParkListView(FormMixin, ListView):
     model = Park
     form_class = SearchForm
-    template_name = 'haversine/search.html'
 
     def get(self, request, *args, **kwargs):
         response = super().get(request, *args, **kwargs)
@@ -31,12 +31,20 @@ class ParkListView(FormMixin, ListView):
         kwargs = {
             'query': form.cleaned_data['address'],
             'radius': form.cleaned_data['radius'],
+            'units': form.cleaned_data['units'],
         }
         point = form.get_point(kwargs['query'])
         if point:
             kwargs['point'] = point
-            kwargs['object_list'] = super().get_queryset().annotate_distance(point).order_by('distance_m').filter(distance_m__lte=kwargs['radius'])
+            kwargs['object_list'] = super().get_queryset()\
+                .annotate_distance(point, units=kwargs['units'])\
+                .order_by('distance').filter(distance__lte=kwargs['radius'])
         return self.render_to_response(self.get_context_data(**kwargs))
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['google_api_key'] = settings.GOOGLE_API_KEY
+        return context
 
 
 class ParkDetailView(DetailView):
@@ -44,5 +52,6 @@ class ParkDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
+        context['google_api_key'] = settings.GOOGLE_API_KEY
         context['previous'] = self.request.META.get('HTTP_REFERER', reverse('haversine:park_list'))
         return context
