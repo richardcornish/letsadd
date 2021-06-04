@@ -85,7 +85,7 @@
         "visitors": 463832,
         "description": "Named for the prominent bend in the Rio Grande along the U.S.–Mexico border, this park encompasses a large and remote part of the Chihuahuan Desert. Its main attraction is backcountry recreation in the arid Chisos Mountains and in canyons along the river. A wide variety of Cretaceous and Tertiary fossils as well as cultural artifacts of Native Americans also exist within its borders.",
         "whs": false,
-        "br": false,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Big_Bend_National_Park"
     }
 },
@@ -192,7 +192,7 @@
         "area": 46766.45,
         "visitors": 440691,
         "description": "Carlsbad Caverns has 117 caves, the longest of which is over 120 miles (190 km) long. The Big Room is almost 4,000 feet (1,200 m) long, and the caves are home to over 400,000 Mexican free-tailed bats and sixteen other species. Above ground are the Chihuahuan Desert and Rattlesnake Springs.",
-        "whs": false,
+        "whs": true,
         "br": false,
         "url": "https://en.wikipedia.org/wiki/Carlsbad_Caverns_National_Park"
     }
@@ -211,7 +211,7 @@
         "visitors": 409630,
         "description": "Five of the eight Channel Islands are protected, with half of the park's area underwater. The islands have a unique Mediterranean ecosystem originally settled by the Chumash people. They are home to over 2,000 species of land plants and animals, 145 endemic to them, including the island fox. Ferry services offer transportation to the islands from the mainland.",
         "whs": false,
-        "br": false,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Channel_Islands_National_Park"
     }
 },
@@ -229,7 +229,7 @@
         "visitors": 159445,
         "description": "On the Congaree River, this park is the largest portion of old-growth floodplain forest left in North America. Some of the trees are the tallest in the eastern United States. An elevated walkway called the Boardwalk Loop guides visitors through the swamp.",
         "whs": false,
-        "br": false,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Congaree_National_Park"
     }
 },
@@ -283,7 +283,7 @@
         "visitors": 1740945,
         "description": "Death Valley is the hottest, lowest, and driest place in the United States, with daytime temperatures that have exceeded 130 °F (54 °C). The park protects Badwater Basin and its vast salt flats at the lowest elevation in North America, −282 ft (−86 m). The park also protects canyons, badlands, sand dunes, mountain ranges, historic mines, springs, and more than 1000 species of plants which grow in this geologic graben.",
         "whs": false,
-        "br": false,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Death_Valley_National_Park"
     }
 },
@@ -301,7 +301,7 @@
         "visitors": 601152,
         "description": "Centered on Denali, the tallest and highest prominence mountain in North America, Denali is serviced by a single road leading to Wonder Lake. Denali and other peaks of the Alaska Range are covered with long glaciers and boreal forest. Wildlife includes grizzly bears, Dall sheep, Porcupine caribou, and wolves.",
         "whs": false,
-        "br": false,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Denali_National_Park_and_Preserve"
     }
 },
@@ -319,7 +319,7 @@
         "visitors": 79200,
         "description": "The islands of the Dry Tortugas, at the westernmost end of the Florida Keys, are the site of Fort Jefferson, a Civil War-era fort that is the largest masonry structure in the Western Hemisphere. The park is home to undisturbed coral reefs and shipwrecks, and is only accessible by plane or boat.",
         "whs": false,
-        "br": false,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Dry_Tortugas_National_Park"
     }
 },
@@ -336,8 +336,8 @@
         "area": 1508938.57,
         "visitors": 1118300,
         "description": "The Everglades are the largest tropical wilderness in the United States. This mangrove and tropical rainforest ecosystem and marine estuary is home to 36 protected species, including the Florida panther, American crocodile, and West Indian manatee. Some areas have been drained and developed; restoration projects aim to restore the ecology.",
-        "whs": false,
-        "br": false,
+        "whs": true,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Everglades_National_Park"
     }
 },
@@ -390,8 +390,8 @@
         "area": 1013125.99,
         "visitors": 3049839,
         "description": "The U.S. half of Waterton-Glacier International Peace Park, this park includes 26 glaciers and 130 named lakes surrounded by Rocky Mountain peaks. There are historic hotels and the landmark Going-to-the-Sun Road in this region of rapidly receding glaciers.[49] The local mountains, formed by an overthrust, expose Paleozoic fossils including trilobites, mollusks, giant ferns and dinosaurs. The park is also home to Triple Divide Peak, which forms the boundary between the watersheds of the Atlantic, Pacific, and Arctic Oceans.",
-        "whs": false,
-        "br": false,
+        "whs": true,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Glacier_National_Park_(U.S.)"
     }
 },
@@ -408,8 +408,8 @@
         "area": 3223383.43,
         "visitors": 672087,
         "description": "Glacier Bay contains tidewater glaciers, mountains, fjords, and a temperate rainforest, and is home to large populations of grizzly bears, mountain goats, whales, seals, and eagles. When discovered in 1794 by George Vancouver, the entire bay was covered by ice, but the glaciers have since receded more than 65 miles (105 km).",
-        "whs": false,
-        "br": false,
+        "whs": true,
+        "br": true,
         "url": "https://en.wikipedia.org/wiki/Glacier_Bay_National_Park_and_Preserve"
     }
 },

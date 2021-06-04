@@ -12,7 +12,7 @@
     .map {
         width: 100%;
         max-width: auto;
-        height: 400px;
+        height: 480px;
     }
     html, body {
         height: 100%;
@@ -60,9 +60,13 @@
     <button type="submit">Search parks</button>
 </form>
 
-<h2>{% if query %}Search results{% else %}Parks{% endif %}</h2>
+{% if address %}
+    <p><a href="{% url 'haversine:park_list' %}">Reset form</a></p>
+{% endif %}
 
-<p>{{ object_list|length }} park{{ object_list|pluralize }} {% if query %}within {{ radius|intcomma }} {% get_field_display form.units units %} of <a href="https://www.google.com/maps/?q={{ point.formatted_address|urlencode }}">{{ point.formatted_address }}</a>{% endif %}</p>
+<h2>{% if address %}Search results{% else %}Parks{% endif %}</h2>
+
+<p>{{ object_list|length }} park{{ object_list|pluralize }} {% if address %}within {{ radius|intcomma }} {% get_field_display form.units units %} of <a href="https://www.google.com/maps/?q={{ point.formatted_address|urlencode }}">{{ point.formatted_address }}</a>{% endif %}</p>
 
 <ul>
     {% for obj in object_list %}
@@ -72,10 +76,6 @@
     {% endfor %}
 </ul>
 
-{% if query %}
-    <p><a href="{% url 'haversine:park_list' %}">Reset form</a></p>
-{% endif %}
-
 {% endblock %}
 
 
@@ -83,6 +83,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
 <script src="{% static 'haversine/js/script.js' %}"></script>
 <script>
-    render_map(".map", [{% for obj in object_list %}{name: "{{ obj.name }}", url: "{{ obj.get_absolute_url }}", point: {lat: {{ obj.latitude }}, lng: {{ obj.longitude }}}{% if point %}, distance: "{{ obj.distance|floatformat:'0g' }} {% get_field_display form.units units %}"{% endif %}}{% if not forloop.last %}, {% endif %}{% endfor %}]{% if point %}, {radius: {{ radius }}, point: {lat: {{ point.latitude }}, lng: {{ point.longitude }}}}, "{% static 'haversine/img/icon-green.png' %}"{% endif %});
+    park_list(".map", {{ object_list_json|safe }}{% if point_json %}, {{ point_json|safe }}, {{ radius_json|safe }}, {{ units_json|safe }}, "{% static 'haversine/img/icon-green.png' %}"{% endif %});
 </script>
 {% endblock %}

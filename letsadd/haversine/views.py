@@ -1,13 +1,17 @@
+import json
+
 from django.conf import settings
+from django.core import serializers
 from django.urls import reverse
 from django.views.generic import DetailView, ListView
 from django.views.generic.edit import FormMixin
 
 from .forms import SearchForm
+from .mixins import JsonMultipleObjectMixin, JsonSingleObjectMixin
 from .models import Park
 
 
-class ParkListView(FormMixin, ListView):
+class ParkListView(JsonMultipleObjectMixin, FormMixin, ListView):
     model = Park
     form_class = SearchForm
 
@@ -28,17 +32,18 @@ class ParkListView(FormMixin, ListView):
         return kwargs
 
     def form_valid(self, form):
-        kwargs = {
-            'query': form.cleaned_data['address'],
-            'radius': form.cleaned_data['radius'],
-            'units': form.cleaned_data['units'],
-        }
-        point = form.get_point(kwargs['query'])
+        kwargs = {}
+        kwargs.update(form.cleaned_data)
+        kwargs.update({'%s_json' % f: json.dumps(form.cleaned_data[f]) for f in form.cleaned_data})
+        point = form.get_point(form.cleaned_data['address'])
         if point:
-            kwargs['point'] = point
-            kwargs['object_list'] = super().get_queryset()\
-                .annotate_distance(point, units=kwargs['units'])\
-                .order_by('distance').filter(distance__lte=kwargs['radius'])
+            kwargs.update({
+                'point': point,
+                'point_json': json.dumps(point),
+            })
+            self.object_list = super().get_queryset()\
+                .annotate_distance(point, units=form.cleaned_data['units'])\
+                .order_by('distance').filter(distance__lte=form.cleaned_data['radius'])
         return self.render_to_response(self.get_context_data(**kwargs))
 
     def get_context_data(self, **kwargs):
@@ -47,7 +52,7 @@ class ParkListView(FormMixin, ListView):
         return context
 
 
-class ParkDetailView(DetailView):
+class ParkDetailView(JsonSingleObjectMixin, DetailView):
     model = Park
 
     def get_context_data(self, **kwargs):

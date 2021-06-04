@@ -3,7 +3,11 @@ from django.db.models import F
 from django.db.models.functions import ATan2, Cos, Power, Radians, Sin, Sqrt
 
 EARTH_RADIUS = 6371000  # meters
-METERS_IN_MILE = 1609.344  # meters
+DEFAULT_UNITS = 'mi'
+METERS_IN = {
+    'mi': 1609.344,  # meters
+    'km': 1000,  # meters
+}
 
 
 class ParkQuerySet(models.QuerySet):
@@ -30,12 +34,9 @@ class ParkQuerySet(models.QuerySet):
 
         c = 2 * ATan2(Sqrt(a), Sqrt(1 - a))
 
-        if units == 'mi':
-            r = EARTH_RADIUS / METERS_IN_MILE
-        elif units == 'km':
-            r = EARTH_RADIUS / 1000
-        else:
-            r = EARTH_RADIUS / METERS_IN_MILE  # miles
+        units = DEFAULT_UNITS if units is None else units
+
+        r = EARTH_RADIUS / METERS_IN[units]
 
         d = c * r
 
@@ -46,5 +47,5 @@ class ParkManager(models.Manager):
     def get_queryset(self):
         return ParkQuerySet(self.model, using=self._db)  # important
 
-    def annotate_distance(self, point, units=None):
-        return self.get_queryset().annotate_distance(point, units=units)
+    def annotate_distance(self, point):
+        return self.get_queryset().annotate_distance(point)

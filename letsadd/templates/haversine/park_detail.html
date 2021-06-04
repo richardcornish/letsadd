@@ -49,6 +49,14 @@
 
 <p>{{ object.visitors|intcomma }}</p>
 
+<h3>World Heritage Site</h3>
+
+<p>{{ object.whs|yesno:"Yes,No" }}</p>
+
+<h3>Biosphere Reserve</h3>
+
+<p>{{ object.br|yesno:"Yes,No" }}</p>
+
 <h3>Description</h3>
 
 <p>{{ object.description }}</p>
@@ -64,6 +72,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
 <script src="{% static 'haversine/js/script.js' %}"></script>
 <script>
-    render_map(".map", [{name: "{{ object.name }}", point: {lat: {{ object.latitude }}, lng: {{ object.longitude }}}}]);
+    park_detail(".map", {{ object_json|safe }});
 </script>
 {% endblock %}
