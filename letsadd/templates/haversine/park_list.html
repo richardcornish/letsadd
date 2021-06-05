@@ -83,6 +83,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
 <script src="{% static 'haversine/js/script.js' %}"></script>
 <script>
-    park_list(".map", {{ object_list_json|safe }}{% if point_json %}, {{ point_json|safe }}, {{ radius_json|safe }}, {{ units_json|safe }}, "{% static 'haversine/img/icon-orange@2x.png' %}"{% endif %});
+    park_list(".map", {{ object_list_json|safe|default:'[]' }}{% if point_json %}, {{ point_json|safe }}, {{ radius_json|safe }}, {{ units_json|safe }}, "{% static 'haversine/img/icon-orange@2x.png' %}"{% endif %});
 </script>
 {% endblock %}

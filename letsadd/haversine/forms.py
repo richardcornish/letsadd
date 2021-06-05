@@ -1,9 +1,13 @@
 import json
 import urllib.parse
 import urllib.request
+from math import pi
 
 from django import forms
 from django.conf import settings
+from django.core.exceptions import ValidationError
+
+from .managers import EARTH_RADIUS, METERS_IN
 
 DEFAULT_RADIUS = 500  # miles
 MINIMUM_RADIUS = 1  # miles
@@ -42,3 +46,11 @@ class SearchForm(forms.Form):
                 except IndexError:
                     return {}
             return {}
+
+    def clean(self):
+        cleaned_data = super().clean()
+        radius = cleaned_data.get('radius')
+        units = cleaned_data.get('units')
+        if radius and units:
+            if radius > pi * EARTH_RADIUS / METERS_IN[units]:
+                raise ValidationError('The radius exceeds half the circumference of Earth.')

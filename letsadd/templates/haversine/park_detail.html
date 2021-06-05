@@ -72,6 +72,6 @@
 <script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}"></script>
 <script src="{% static 'haversine/js/script.js' %}"></script>
 <script>
-    park_detail(".map", {{ object_json|safe }});
+    park_detail(".map", {{ object_json|safe|default:'{}' }});
 </script>
 {% endblock %}
