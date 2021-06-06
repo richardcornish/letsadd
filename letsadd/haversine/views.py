@@ -41,10 +41,10 @@ class ParkListView(JsonMultipleObjectMixin, FormMixin, ListView):
                 'point': point,
                 'point_json': json.dumps(point),
             })
-            self.object_list = super().get_queryset()\
+            object_list = super().get_queryset()\
                 .annotate_distance(point, units=form.cleaned_data['units'])\
                 .order_by('distance').filter(distance__lte=form.cleaned_data['radius'])
-        return self.render_to_response(self.get_context_data(**kwargs))
+        return self.render_to_response(self.get_context_data(object_list=object_list, **kwargs))
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

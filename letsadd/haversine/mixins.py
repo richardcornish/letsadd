@@ -8,8 +8,8 @@ class JsonSingleObjectMixin:
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.object:
-            context['object_json'] = json.dumps(json.loads(serializers.serialize('json', [self.object], fields=('latitude', 'longitude')))[0]['fields'])
+        if 'object' in context:
+            context['object_json'] = json.dumps(json.loads(serializers.serialize('json', [context['object']], fields=('latitude', 'longitude')))[0]['fields'])
         return context
 
 
@@ -17,10 +17,10 @@ class JsonMultipleObjectMixin:
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        if self.object_list:
-            object_list = json.loads(serializers.serialize('json', self.object_list, fields=('name', 'latitude', 'longitude')))
+        if 'object_list' in context:
+            object_list = json.loads(serializers.serialize('json', context['object_list'], fields=('name', 'latitude', 'longitude')))
             for obj in object_list:
-                qs_object = self.object_list.get(pk=obj['pk'])
+                qs_object = context['object_list'].get(pk=obj['pk'])
                 if hasattr(qs_object, 'distance'):  # check for annotated QuerySet
                     obj['fields']['distance'] = floatformat(qs_object.distance, arg='0g')
                 obj['fields']['get_absolute_url'] = qs_object.get_absolute_url()

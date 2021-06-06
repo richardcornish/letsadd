@@ -66,7 +66,7 @@
 
 <h2>{% if address %}Search results{% else %}Parks{% endif %}</h2>
 
-<p>{{ object_list|length }} park{{ object_list|pluralize }} {% if address %}within {{ radius|intcomma }} {% get_field_display form.units units %} of <a href="https://www.google.com/maps/?q={{ point.formatted_address|urlencode }}">{{ point.formatted_address }}</a>{% endif %}</p>
+<p>{{ object_list|length }} park{{ object_list|pluralize }}{% if address %} within {{ radius|intcomma }} {% get_field_display form.units units %}{{ radius|pluralize }} of <a href="https://www.google.com/maps/?q={{ point.formatted_address|urlencode }}">{{ point.formatted_address }}</a>{% endif %}</p>
 
 <ul>
     {% for obj in object_list %}

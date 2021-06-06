@@ -1,9 +1,11 @@
 from django.db import models
 from django.db.models import F
-from django.db.models.functions import ATan2, Cos, Power, Radians, Sin, Sqrt
+from django.db.models.functions import ASin, Cos, Power, Radians, Sin, Sqrt
 
 EARTH_RADIUS = 6371000  # meters
-DEFAULT_UNITS = 'mi'
+
+DEFAULT_UNITS = 'mi'  # miles
+
 METERS_IN = {
     'mi': 1609.344,  # meters
     'km': 1000,  # meters
@@ -32,7 +34,7 @@ class ParkQuerySet(models.QuerySet):
             Cos(phi_1) * Cos(phi_2) *\
             Power(Sin(delta_lambda / 2), 2)
 
-        c = 2 * ATan2(Sqrt(a), Sqrt(1 - a))
+        c = 2 * ASin(Sqrt(a))
 
         units = DEFAULT_UNITS if units is None else units
 
@@ -47,5 +49,5 @@ class ParkManager(models.Manager):
     def get_queryset(self):
         return ParkQuerySet(self.model, using=self._db)  # important
 
-    def annotate_distance(self, point):
-        return self.get_queryset().annotate_distance(point)
+    def annotate_distance(self, point, units=None):
+        return self.get_queryset().annotate_distance(point, units=None)

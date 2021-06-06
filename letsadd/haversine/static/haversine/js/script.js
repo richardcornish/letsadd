@@ -1,4 +1,4 @@
-const opts = {
+let opts = {
     center: {
         lat: 39.833333,
         lng: -98.583333
@@ -35,7 +35,7 @@ let park_list = function (selector, object_array, point, radius, units, path) {
     let _map = new google.maps.Map(mapDiv, opts);
     let bounds = new google.maps.LatLngBounds();
     let info = new google.maps.InfoWindow();
-    object_array.map(function (obj) {
+    object_array.forEach(function (obj) {
         let marker = new google.maps.Marker({
             map: _map,
             position: {

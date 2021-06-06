@@ -5,11 +5,13 @@ from math import pi
 
 from django import forms
 from django.conf import settings
+from django.contrib.humanize.templatetags.humanize import intcomma
 from django.core.exceptions import ValidationError
 
-from .managers import EARTH_RADIUS, METERS_IN
+from .managers import DEFAULT_UNITS, EARTH_RADIUS, METERS_IN
 
 DEFAULT_RADIUS = 500  # miles
+
 MINIMUM_RADIUS = 1  # miles
 
 
@@ -19,11 +21,11 @@ class SearchForm(forms.Form):
         ('km', 'kilometers'),
     ]
     address = forms.CharField(label='Location', widget=forms.TextInput(attrs={
-        'type': 'search',
         'placeholder': 'Any address, city, ZIP code, etc.',
+        'type': 'search',
     }))
     radius = forms.IntegerField(initial=DEFAULT_RADIUS, min_value=MINIMUM_RADIUS)
-    units = forms.ChoiceField(initial='miles', choices=UNITS_CHOICES)
+    units = forms.ChoiceField(initial=DEFAULT_UNITS, choices=UNITS_CHOICES)
 
     def get_point(self, address):
         outputFormat = 'json'
@@ -53,4 +55,6 @@ class SearchForm(forms.Form):
         units = cleaned_data.get('units')
         if radius and units:
             if radius > pi * EARTH_RADIUS / METERS_IN[units]:
-                raise ValidationError('The radius exceeds half the circumference of Earth.')
+                units_display = ''.join([c[1] for c in self.UNITS_CHOICES if c[0] == units])
+                radius_display = intcomma(radius)
+                raise ValidationError('The radius %s %s exceeds half the circumference of Earth.' % (radius_display, units_display), code='max_value')
