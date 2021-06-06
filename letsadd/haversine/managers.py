@@ -4,12 +4,12 @@ from django.db.models.functions import ASin, Cos, Power, Radians, Sin, Sqrt
 
 EARTH_RADIUS = 6371000  # meters
 
-DEFAULT_UNITS = 'mi'  # miles
-
 METERS_IN = {
     'mi': 1609.344,  # meters
     'km': 1000,  # meters
 }
+
+DEFAULT_UNITS = 'mi'  # miles
 
 
 class ParkQuerySet(models.QuerySet):
