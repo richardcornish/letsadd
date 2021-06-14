@@ -1,7 +1,7 @@
 from django.db import models
 from django.urls import reverse
 
-from .managers import ParkManager
+from .managers import ParkQuerySet
 
 
 class Park(models.Model):
@@ -18,7 +18,7 @@ class Park(models.Model):
     br = models.BooleanField('Biosphere Reserve', default=False)
     url = models.URLField('URL')
 
-    objects = ParkManager()
+    objects = ParkQuerySet.as_manager()
 
     class Meta:
         ordering = ['name']

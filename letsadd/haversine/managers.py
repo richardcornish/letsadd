@@ -43,11 +43,3 @@ class ParkQuerySet(models.QuerySet):
         d = c * r
 
         return self.exclude(latitude=None).exclude(longitude=None).annotate(distance=d)
-
-
-class ParkManager(models.Manager):
-    def get_queryset(self):
-        return ParkQuerySet(self.model, using=self._db)  # important
-
-    def annotate_distance(self, point, units=None):
-        return self.get_queryset().annotate_distance(point, units=None)
