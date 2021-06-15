@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}Aggregate related models &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Aggregate related models</h1>
+
+<p>A QuerySet that aggregates the sums of related models. <a href="https://www.reddit.com/r/djangolearning/comments/nylc59/sum_amounts_in_template/">Source</a>.</p>
+
+<h2>{{ object }}</h2>
+
+<p>Total: ${{ aggregate.invoice_amount__sum|floatformat:'2g' }}</p>
+
+<ul>
+    {% for i in object.invoice_set.all %}
+    <li>Invoice {{ i.pk }}: ${{ i.invoice_amount }}</li>
+    {% endfor %}
+</ul>
+
+<p><a href="{% url 'agents:agent_list' %}">Return to agents</a></p>
+
+{% endblock %}

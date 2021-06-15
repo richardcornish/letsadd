@@ -19,5 +19,6 @@ urlpatterns = [
     path('fetch/', include('fetch.urls')),
     path('geocode/', include('geocode.urls')),
     path('haversine/', include('haversine.urls')),
+    path('agents/', include('agents.urls')),
     path('', home, name='home'),
 ]

@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'fetch',
     'geocode',
     'haversine',
+    'agents',
 ]
 
 MIDDLEWARE = [

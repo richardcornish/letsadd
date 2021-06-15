@@ -1,0 +1,95 @@
+[
+{
+    "model": "agents.agent",
+    "pk": 1,
+    "fields": {
+        "name": "Bob"
+    }
+},
+{
+    "model": "agents.agent",
+    "pk": 2,
+    "fields": {
+        "name": "Alice"
+    }
+},
+{
+    "model": "agents.agent",
+    "pk": 3,
+    "fields": {
+        "name": "Wally"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 1,
+    "fields": {
+        "agent": 1,
+        "invoice_amount": "10.23"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 2,
+    "fields": {
+        "agent": 1,
+        "invoice_amount": "54.50"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 3,
+    "fields": {
+        "agent": 1,
+        "invoice_amount": "24.16"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 4,
+    "fields": {
+        "agent": 2,
+        "invoice_amount": "33.41"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 5,
+    "fields": {
+        "agent": 2,
+        "invoice_amount": "93.90"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 6,
+    "fields": {
+        "agent": 2,
+        "invoice_amount": "8.12"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 7,
+    "fields": {
+        "agent": 3,
+        "invoice_amount": "59.11"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 8,
+    "fields": {
+        "agent": 3,
+        "invoice_amount": "83.85"
+    }
+},
+{
+    "model": "agents.invoice",
+    "pk": 9,
+    "fields": {
+        "agent": 3,
+        "invoice_amount": "1.49"
+    }
+}
+]
