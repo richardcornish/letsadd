@@ -1,0 +1,82 @@
+[
+{
+    "model": "csvexporter.customer",
+    "pk": 1,
+    "fields": {
+        "forename": "Bob",
+        "surname": "Smith",
+        "email": "",
+        "company_name": "Red Company",
+        "building_name": "",
+        "street_name": "",
+        "locality": "",
+        "city": "",
+        "postcode": "",
+        "flag": "example"
+    }
+},
+{
+    "model": "csvexporter.customer",
+    "pk": 2,
+    "fields": {
+        "forename": "Alice",
+        "surname": "Jones",
+        "email": "",
+        "company_name": "Blue Company",
+        "building_name": "",
+        "street_name": "",
+        "locality": "",
+        "city": "",
+        "postcode": "",
+        "flag": "Electoral"
+    }
+},
+{
+    "model": "csvexporter.customer",
+    "pk": 3,
+    "fields": {
+        "forename": "Wally",
+        "surname": "McDonald",
+        "email": "",
+        "company_name": "Green Company",
+        "building_name": "",
+        "street_name": "",
+        "locality": "",
+        "city": "",
+        "postcode": "",
+        "flag": "example"
+    }
+},
+{
+    "model": "csvexporter.customer",
+    "pk": 4,
+    "fields": {
+        "forename": "Frank",
+        "surname": "Masters",
+        "email": "",
+        "company_name": "Yellow Company",
+        "building_name": "",
+        "street_name": "",
+        "locality": "",
+        "city": "",
+        "postcode": "",
+        "flag": "Existing Clients"
+    }
+},
+{
+    "model": "csvexporter.customer",
+    "pk": 5,
+    "fields": {
+        "forename": "Lisa",
+        "surname": "Johnson",
+        "email": "",
+        "company_name": "Orange Company",
+        "building_name": "",
+        "street_name": "",
+        "locality": "",
+        "city": "",
+        "postcode": "",
+        "flag": "example"
+    }
+}
+]

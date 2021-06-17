@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'geocode',
     'haversine',
     'agents',
+    'csvexporter',
 ]
 
 MIDDLEWARE = [

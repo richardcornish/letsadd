@@ -20,5 +20,6 @@ urlpatterns = [
     path('geocode/', include('geocode.urls')),
     path('haversine/', include('haversine.urls')),
     path('agents/', include('agents.urls')),
+    path('csvexporter/', include('csvexporter.urls')),
     path('', home, name='home'),
 ]

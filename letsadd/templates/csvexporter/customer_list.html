@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+
+{% block title %}CSV Exporter &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>CSV Exporter</h1>
+
+<p>A form that exports a <a href="https://docs.python.org/3/library/csv.html">comma-separated values</a> file. <a href="https://www.reddit.com/r/djangolearning/comments/o115p4/dropdown_menu_to_export_data_based_on_data_in/">Source</a>.</p>
+
+<h2>Filter customers</h2>
+
+<form method="get" action="{% url 'csvexporter:customer_list' %}">
+    {{ form.as_p }}
+    <p><button type="submit">Filter data</button></p>
+</form>
+
+{% if form.cleaned_data %}
+    <p><a href="{% url 'csvexporter:customer_list' %}">Reset form</a></p>
+{% endif %}
+
+<h2>Customers</h2>
+
+<p>{{ object_list|length }} customer{{ object_list|pluralize }}</p>
+
+<ul>
+    {% for obj in object_list %}
+    <li>{{ obj }}: {{ obj.flag }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}
