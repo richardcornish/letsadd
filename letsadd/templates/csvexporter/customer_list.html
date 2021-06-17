@@ -14,7 +14,7 @@
 
 <form method="get" action="{% url 'csvexporter:customer_list' %}">
     {{ form.as_p }}
-    <p><button type="submit">Filter data</button></p>
+    <p><button type="submit">Filter customers</button></p>
 </form>
 
 {% if form.cleaned_data %}

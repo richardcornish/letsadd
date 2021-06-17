@@ -4,7 +4,7 @@ from .models import Customer
 
 
 class CustomerForm(forms.ModelForm):
-    export = forms.BooleanField(required=False)
+    export = forms.BooleanField(label='Export?', required=False)
 
     class Meta:
         model = Customer
