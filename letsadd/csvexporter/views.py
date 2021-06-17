@@ -9,14 +9,14 @@ from .models import Customer
 
 def customer_list(request):
     qs = Customer.objects.all()
-    if request.method == 'GET' and request.GET:
+    if request.GET:
         form = CustomerForm(request.GET)
         if form.is_valid():
-            flag = form.cleaned_data['flag']
-            qs = qs.filter(flag=flag)
-            if form.cleaned_data['export']:
+            export = form.cleaned_data.pop('export')
+            qs = qs.filter(**form.cleaned_data)
+            if export:
                 response = HttpResponse(content_type='text/csv')
-                response['Content-Disposition'] = 'attachment; filename="%s.csv"' % flag
+                response['Content-Disposition'] = 'attachment; filename="%s.csv"' % form.cleaned_data['flag']
                 writer = csv.writer(response)
                 writer.writerow([f.name for f in Customer._meta.get_fields()])
                 rows = [writer.writerow(t) for t in qs.values_list()]
