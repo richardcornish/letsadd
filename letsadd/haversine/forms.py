@@ -28,14 +28,14 @@ class SearchForm(forms.Form):
     units = forms.ChoiceField(initial=DEFAULT_UNITS, choices=UNITS_CHOICES)
 
     def get_point(self, address):
-        outputFormat = 'json'
+        output = 'json'
         parameters = urllib.parse.urlencode({
             'address': address,
             'key': settings.GOOGLE_API_KEY,
         })
-        url = 'https://maps.googleapis.com/maps/api/geocode/%s?%s' % (outputFormat, parameters)
+        url = 'https://maps.googleapis.com/maps/api/geocode/%s?%s' % (output, parameters)
         with urllib.request.urlopen(url) as response:
-            body = json.loads(response.read().decode('utf-8'))
+            body = json.load(response)
             if body['status'] == 'OK':
                 try:
                     return {
@@ -45,8 +45,6 @@ class SearchForm(forms.Form):
                     }
                 except KeyError:
                     return {}
-                except IndexError:
-                    return {}
             return {}
 
     def clean(self):
@@ -55,6 +53,6 @@ class SearchForm(forms.Form):
         units = cleaned_data.get('units')
         if radius and units:
             if radius > pi * EARTH_RADIUS / METERS_IN[units]:
-                units_display = ''.join([c[1] for c in self.UNITS_CHOICES if c[0] == units])
                 radius_display = intcomma(radius)
+                units_display = ''.join([c[1] for c in self.UNITS_CHOICES if c[0] == units])
                 raise ValidationError('The radius %s %s exceeds half the circumference of Earth.' % (radius_display, units_display), code='max_value')

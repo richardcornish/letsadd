@@ -36,14 +36,14 @@ class SearchForm(forms.Form):
         return int(miles * METERS_IN_MILE)
 
     def get_point(self, address):
-        outputFormat = 'json'
+        output = 'json'
         parameters = urllib.parse.urlencode({
             'address': address,
             'key': settings.GOOGLE_API_KEY,
         })
-        url = 'https://maps.googleapis.com/maps/api/geocode/%s?%s' % (outputFormat, parameters)
+        url = 'https://maps.googleapis.com/maps/api/geocode/%s?%s' % (output, parameters)
         with urllib.request.urlopen(url) as response:
-            body = json.loads(response.read().decode('utf-8'))
+            body = json.load(response)
             if body['status'] == 'OK':
                 try:
                     return {
@@ -51,8 +51,6 @@ class SearchForm(forms.Form):
                         'longitude': body['results'][0]['geometry']['location']['lng'],
                     }
                 except KeyError:
-                    return {}
-                except IndexError:
                     return {}
             return {}
 
@@ -65,7 +63,7 @@ class SearchForm(forms.Form):
             'type': self.cleaned_data['type'],
         }
         if self.cleaned_data['keyword']:
-            parameters['keyword'] = self.cleaned_data['keyword']        
+            parameters['keyword'] = self.cleaned_data['keyword']
         if self.cleaned_data['minprice']:
             parameters['minprice'] = self.cleaned_data['minprice']
         if self.cleaned_data['maxprice']:
@@ -75,7 +73,7 @@ class SearchForm(forms.Form):
         parameters = urllib.parse.urlencode(parameters)
         url = 'https://maps.googleapis.com/maps/api/place/nearbysearch/%s?%s' % (output, parameters)
         with urllib.request.urlopen(url) as response:
-            body = json.loads(response.read().decode('utf-8'))
+            body = json.load(response)
             if body['status'] == 'OK':
                 try:
                     return body['results']
