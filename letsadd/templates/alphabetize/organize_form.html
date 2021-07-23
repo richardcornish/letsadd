@@ -10,24 +10,9 @@
 
 <h1>Alphabetizer</h1>
 
-<p>A form that <a href="https://docs.python.org/3/library/functions.html#sorted">alphabetizes</a> a text field based on <a href="https://docs.python.org/3/library/stdtypes.html#str.splitlines">line boundaries</a>.</p>
+<p>A form that <a href="https://docs.python.org/3/library/functions.html#sorted">organizes</a> a text field based on <a href="https://docs.python.org/3/library/stdtypes.html#str.splitlines">line boundaries</a>.</p>
 
 <h2>Enter text</h2>
-
-<p>Or try out this text:</p>
-
-<ul>
-    <li>Superman</li>
-    <li>Batman</li>
-    <li>Spider-Man</li>
-    <li>Wonder Woman</li>
-    <li>Captain America</li>
-    <li>Wolverine</li>
-    <li>Green Lantern</li>
-    <li>Black Panther</li>
-    <li>The Flash</li>
-    <li>Thor</li>
-</ul>
 
 {% if form.non_field_errors %}
 <ul>
@@ -37,7 +22,7 @@
 </ul>
 {% endif %}
 
-<form method="post" action="{% url 'alphabetize:alphabetize_form' %}">
+<form method="post" action="{% url 'alphabetize:organize_form' %}">
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
         <div>{{ hidden }}</div>
@@ -49,14 +34,14 @@
         <p>{{ field.label_tag }}</p>
         <div>{{ field }}</div>
         {% if field.help_text %}
-            <p>{{ field.help_text }}</p>
+            <p><small>{{ field.help_text|safe }}</small></p>
         {% endif %}
     {% endfor %}
-    <p><button type="submit">Alphabetize</button></p>
+    <p><button type="submit">Organize</button></p>
 </form>
 
 {% if form.has_changed %}
-    <p><a href="{% url 'alphabetize:alphabetize_form' %}">Reset form</a></p>
+    <p><a href="{% url 'alphabetize:organize_form' %}">Reset form</a></p>
 {% endif %}
 
 {% endblock %}

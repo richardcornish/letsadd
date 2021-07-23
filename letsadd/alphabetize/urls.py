@@ -1,10 +1,10 @@
 from django.urls import path
 
-from .views import AlphabetizeFormView
+from .views import OrganizeFormView
 
 
 app_name = 'alphabetize'
 
 urlpatterns = [
-    path('', AlphabetizeFormView.as_view(), name='alphabetize_form'),
+    path('', OrganizeFormView.as_view(), name='organize_form'),
 ]
