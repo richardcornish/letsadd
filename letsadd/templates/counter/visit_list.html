@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% load static clicker_tags %}
+
+
+{% block title %}Counter &#8226; {{ block.super }}{% endblock %}
+
+
+{% block content %}
+
+<h1>Counter</h1>
+
+<p>A page that increments the number of visitors. <a href="https://www.reddit.com/r/djangolearning/comments/umwcfi/view_counter_on_homepage/">Source</a>.</p>
+
+<p>The page was visited {{ aggregate.pk__count }} time{{ aggregate.pk__count|pluralize }}.</p>
+
+<ul>
+    {% for visit in visit_list %}
+    <li>{{ visit.timestamp|iso8601 }}</li>
+    {% endfor %}
+</ul>
+
+{% endblock %}

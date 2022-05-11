@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     'haversine',
     'agents',
     'csvexporter',
+    'counter',
 ]
 
 MIDDLEWARE = [
