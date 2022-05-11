@@ -12,7 +12,7 @@ from .models import Click
 class ClickCreateView(CreateView):
     model = Click
     fields = []
-    success_url = reverse_lazy('counter:click_create')
+    success_url = reverse_lazy('clicker:click_create')
 
     def request_is_ajax(self):
         return self.request.headers.get('X-Requested-With') == 'XMLHttpRequest'
@@ -40,4 +40,4 @@ class ClickDeleteView(View):
 
     def post(self, *args, **kwargs):
         Click.objects.all().delete()
-        return redirect(reverse('counter:click_create'))
+        return redirect(reverse('clicker:click_create'))

@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'widget_tweaks',
-    'counter',
+    'clicker',
     'initial',
     'oscars',
     'choices',

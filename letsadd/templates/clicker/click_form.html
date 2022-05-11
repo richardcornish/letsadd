@@ -1,25 +1,25 @@
 {% extends 'base.html' %}
 
-{% load static counter_tags %}
+{% load static clicker_tags %}
 
 
-{% block title %}Ajax Counter &#8226; {{ block.super }}{% endblock %}
+{% block title %}Ajax Clicker &#8226; {{ block.super }}{% endblock %}
 
 
 {% block content %}
 
-<h1>Ajax Counter</h1>
+<h1>Ajax Clicker</h1>
 
 <p>A form that increments the number of button clicks using Ajax. <a href="https://www.reddit.com/r/djangolearning/comments/munpw6/make_a_button_counter_with_ajax/">Source</a>.</p>
 
 <div class="errors"></div>
 
-<form method="post" action="{% url 'counter:click_create' %}" class="form-create">
+<form method="post" action="{% url 'clicker:click_create' %}" class="form-create">
     {% csrf_token %}
     <p><button type="submit">Add click to counter</button></p>
 </form>
 
-<form method="post" action="{% url 'counter:click_delete' %}" class="form-delete">
+<form method="post" action="{% url 'clicker:click_delete' %}" class="form-delete">
     {% csrf_token %}
     <p><button type="submit">Delete click data</button></p>
 </form>
@@ -36,8 +36,8 @@
 
 
 {% block scripts %}
-<script src="{% static 'counter/js/script.js' %}"></script>
+<script src="{% static 'clicker/js/script.js' %}"></script>
 <script>
-    ajax(".form-create", "{% url 'counter:click_create' %}", "{{ csrf_token }}");
+    ajax(".form-create", "{% url 'clicker:click_create' %}", "{{ csrf_token }}");
 </script>
 {% endblock %}
